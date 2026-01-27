@@ -54,6 +54,18 @@ import crafturePrisonguard from '@/assets/crafture-prisonguard.png';
 import craftureCloudpuff from '@/assets/crafture-cloudpuff.png';
 import craftureStormcloud from '@/assets/crafture-stormcloud.png';
 import craftureSkylord from '@/assets/crafture-skylord.png';
+// Jungle Craftures
+import craftureJunglekit from '@/assets/crafture-junglekit.png';
+import craftureVineguard from '@/assets/crafture-vineguard.png';
+import craftureJungleking from '@/assets/crafture-jungleking.png';
+// Swamp Craftures
+import craftureMurkpuff from '@/assets/crafture-murkpuff.png';
+import craftureToxifrog from '@/assets/crafture-toxifrog.png';
+import craftureSwamplord from '@/assets/crafture-swamplord.png';
+// Volcano Craftures
+import craftureLavapup from '@/assets/crafture-lavapup.png';
+import craftureMagmacore from '@/assets/crafture-magmacore.png';
+import craftureVolcanus from '@/assets/crafture-volcanus.png';
 
 // New crafture images
 import craftureFlarepup from '@/assets/crafture-flarepup.png';
@@ -171,6 +183,18 @@ export const craftureImages: Record<string, string> = {
   'cloudpuff': craftureCloudpuff,
   'stormcloud': craftureStormcloud,
   'skylord': craftureSkylord,
+  // Jungle Craftures
+  'junglekit': craftureJunglekit,
+  'vineguard': craftureVineguard,
+  'jungleking': craftureJungleking,
+  // Swamp Craftures
+  'murkpuff': craftureMurkpuff,
+  'toxifrog': craftureToxifrog,
+  'swamplord': craftureSwamplord,
+  // Volcano Craftures
+  'lavapup': craftureLavapup,
+  'magmacore': craftureMagmacore,
+  'volcanus': craftureVolcanus,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -1120,6 +1144,141 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 100,
     baseDefense: 85,
     baseSpeed: 110,
+    evolutionStage: 3,
+  },
+  
+  // ============= JUNGLE BIOME CRAFTURES =============
+  {
+    id: 'junglekit',
+    name: 'Junglekit',
+    type: 'forest',
+    description: 'A vine-covered furball from the deepest jungles. Leaves sprout from its back.',
+    rarity: 'uncommon',
+    baseHappiness: 70,
+    baseHunger: 55,
+    baseAttack: 55,
+    baseDefense: 50,
+    baseSpeed: 60,
+    evolvesTo: 'vineguard',
+    evolvesAt: 16,
+    evolutionStage: 1,
+  },
+  {
+    id: 'vineguard',
+    name: 'Vineguard',
+    type: 'forest',
+    description: 'Vines glow with ancient jungle magic. A protective mid-evolution.',
+    rarity: 'rare',
+    baseHappiness: 68,
+    baseHunger: 50,
+    baseAttack: 72,
+    baseDefense: 68,
+    baseSpeed: 72,
+    evolvesTo: 'jungleking',
+    evolvesAt: 32,
+    evolutionStage: 2,
+  },
+  {
+    id: 'jungleking',
+    name: 'Jungleking',
+    type: 'forest',
+    description: 'Supreme ruler of the jungle. Golden vines crown its majestic form.',
+    rarity: 'legendary',
+    baseHappiness: 65,
+    baseHunger: 45,
+    baseAttack: 95,
+    baseDefense: 90,
+    baseSpeed: 88,
+    evolutionStage: 3,
+  },
+  
+  // ============= SWAMP BIOME CRAFTURES =============
+  {
+    id: 'murkpuff',
+    name: 'Murkpuff',
+    type: 'water',
+    description: 'A slimy furball from toxic swamps. Bubbles of poison drip from its fur.',
+    rarity: 'uncommon',
+    baseHappiness: 55,
+    baseHunger: 40,
+    baseAttack: 60,
+    baseDefense: 55,
+    baseSpeed: 45,
+    evolvesTo: 'toxifrog',
+    evolvesAt: 18,
+    evolutionStage: 1,
+  },
+  {
+    id: 'toxifrog',
+    name: 'Toxifrog',
+    type: 'water',
+    description: 'Toxic bubbles orbit its body. A venomous mid-evolution.',
+    rarity: 'rare',
+    baseHappiness: 50,
+    baseHunger: 35,
+    baseAttack: 78,
+    baseDefense: 70,
+    baseSpeed: 58,
+    evolvesTo: 'swamplord',
+    evolvesAt: 35,
+    evolutionStage: 2,
+  },
+  {
+    id: 'swamplord',
+    name: 'Swamplord',
+    type: 'water',
+    description: 'Master of all swamps. Its toxic presence wilts everything around it.',
+    rarity: 'legendary',
+    baseHappiness: 45,
+    baseHunger: 30,
+    baseAttack: 102,
+    baseDefense: 95,
+    baseSpeed: 70,
+    evolutionStage: 3,
+  },
+  
+  // ============= VOLCANO BIOME CRAFTURES =============
+  {
+    id: 'lavapup',
+    name: 'Lavapup',
+    type: 'fire',
+    description: 'A volcanic furball with lava cracks glowing across its body.',
+    rarity: 'rare',
+    baseHappiness: 65,
+    baseHunger: 60,
+    baseAttack: 70,
+    baseDefense: 50,
+    baseSpeed: 55,
+    evolvesTo: 'magmacore',
+    evolvesAt: 20,
+    evolutionStage: 1,
+  },
+  {
+    id: 'magmacore',
+    name: 'Magmacore',
+    type: 'fire',
+    description: 'Molten rock armor forms around it. A devastating mid-evolution.',
+    rarity: 'rare',
+    baseHappiness: 60,
+    baseHunger: 55,
+    baseAttack: 88,
+    baseDefense: 72,
+    baseSpeed: 65,
+    evolvesTo: 'volcanus',
+    evolvesAt: 38,
+    evolutionStage: 2,
+  },
+  {
+    id: 'volcanus',
+    name: 'Volcanus',
+    type: 'fire',
+    description: 'A floating volcanic titan. Magma drips eternally from its burning form.',
+    rarity: 'legendary',
+    baseHappiness: 55,
+    baseHunger: 50,
+    baseAttack: 115,
+    baseDefense: 90,
+    baseSpeed: 78,
     evolutionStage: 3,
   },
 ];

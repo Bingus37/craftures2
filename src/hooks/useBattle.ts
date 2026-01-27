@@ -392,7 +392,7 @@ export function useBattle(
     }
   }, [battleState]);
 
-  // Switch crafture during battle (when current faints)
+  // Switch crafture during battle (when current faints) - RESETS the fight
   const switchCrafture = useCallback((newCrafture: OwnedCrafture) => {
     if (!battleState) return;
     
@@ -401,6 +401,7 @@ export function useBattle(
     
     const playerMoves = getCraftureMoves(newCrafture, newSpecies.type);
     
+    // Reset wild crafture HP when switching (fight reset)
     setBattleState(prev => prev ? {
       ...prev,
       playerCrafture: newCrafture,
@@ -408,14 +409,17 @@ export function useBattle(
       playerMoves,
       playerStatus: null,
       playerStatusTurns: 0,
+      wildHp: prev.wildCrafture.maxHp, // RESET wild HP
+      wildStatus: null, // Reset wild status too
+      wildStatusTurns: 0,
       playerTurn: true,
       isOver: false,
       winner: null,
-      battleLog: [...prev.battleLog, `Go, ${newCrafture.nickname}!`],
+      battleLog: [...prev.battleLog, `Go, ${newCrafture.nickname}! The wild Crafture recovered!`],
     } : null);
   }, [battleState]);
   
-  // Heal the current player crafture in battle (for items)
+  // Heal the current player crafture in battle (for items) - RESETS the fight
   const healInBattle = useCallback((healAmount: number) => {
     if (!battleState) return;
     
@@ -425,7 +429,10 @@ export function useBattle(
       return {
         ...prev,
         playerHp: newHp,
-        battleLog: [...prev.battleLog, `${prev.playerCrafture.nickname} restored ${healAmount} HP!`],
+        wildHp: prev.wildCrafture.maxHp, // RESET wild HP
+        wildStatus: null, // Reset wild status
+        wildStatusTurns: 0,
+        battleLog: [...prev.battleLog, `${prev.playerCrafture.nickname} restored ${healAmount} HP! The wild Crafture recovered!`],
         playerTurn: false, // Using item ends turn
       };
     });

@@ -178,8 +178,8 @@ export function BiomeMapScreen({ onBack, onStartBattle, onStartEncounter, comple
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Inner map content - larger than viewport for scrolling */}
-        <div className="relative w-[150%] h-[150%] min-w-[800px] min-h-[600px]">
+        {/* Inner map content - LARGER for more room */}
+        <div className="relative w-[200%] h-[200%] min-w-[1000px] min-h-[800px]">
         {/* Base map gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-400 via-emerald-300 to-amber-200" />
         
@@ -209,6 +209,12 @@ export function BiomeMapScreen({ onBack, onStartBattle, onStartEncounter, comple
                 biome.id === 'flower' && 'bg-gradient-to-br from-pink-400/60 via-rose-500/50 to-fuchsia-500/60',
                 biome.id === 'rock' && 'bg-gradient-to-br from-stone-400/60 via-amber-500/50 to-stone-600/60',
                 biome.id === 'crystal' && 'bg-gradient-to-br from-purple-300/60 via-pink-400/50 to-violet-500/60',
+                biome.id === 'desert' && 'bg-gradient-to-br from-amber-400/60 via-orange-500/50 to-yellow-600/60',
+                biome.id === 'graveyard' && 'bg-gradient-to-br from-gray-500/60 via-slate-600/50 to-gray-700/60',
+                biome.id === 'sky' && 'bg-gradient-to-br from-sky-300/60 via-blue-400/50 to-cyan-400/60',
+                biome.id === 'jungle' && 'bg-gradient-to-br from-lime-500/60 via-green-600/50 to-emerald-700/60',
+                biome.id === 'swamp' && 'bg-gradient-to-br from-teal-600/60 via-emerald-700/50 to-green-800/60',
+                biome.id === 'volcano' && 'bg-gradient-to-br from-red-600/60 via-orange-700/50 to-red-800/60',
               )}
               style={{
                 left: `${minX}%`,
@@ -228,6 +234,12 @@ export function BiomeMapScreen({ onBack, onStartBattle, onStartEncounter, comple
                 biome.id === 'flower' && 'bg-[radial-gradient(circle_at_40%_40%,rgba(244,114,182,0.4)_0%,transparent_50%),radial-gradient(circle_at_60%_60%,rgba(251,113,133,0.3)_0%,transparent_40%)]',
                 biome.id === 'rock' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(168,162,158,0.5)_0%,transparent_50%)]',
                 biome.id === 'crystal' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(192,132,252,0.5)_0%,transparent_50%)]',
+                biome.id === 'desert' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.5)_0%,transparent_50%)]',
+                biome.id === 'graveyard' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(100,116,139,0.5)_0%,transparent_50%)]',
+                biome.id === 'sky' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(125,211,252,0.5)_0%,transparent_50%)]',
+                biome.id === 'jungle' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.5)_0%,transparent_50%)]',
+                biome.id === 'swamp' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.5)_0%,transparent_50%)]',
+                biome.id === 'volcano' && 'bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.5)_0%,transparent_50%)]',
               )} />
             </div>
           );

@@ -201,8 +201,23 @@ export function BattleScreen({
               </div>
               <Progress 
                 value={wildHpPercent} 
-                className="h-3"
+                className="h-3 mb-2"
               />
+              {/* Wild Stats Display */}
+              <div className="flex gap-2 text-[10px] text-muted-foreground">
+                <span className="flex items-center gap-0.5">
+                  <Swords className="h-3 w-3 text-red-400" />
+                  {battleState.wildCrafture.attack}
+                </span>
+                <span className="flex items-center gap-0.5">
+                  <Shield className="h-3 w-3 text-blue-400" />
+                  {battleState.wildCrafture.defense}
+                </span>
+                <span className="flex items-center gap-0.5">
+                  <Zap className="h-3 w-3 text-yellow-400" />
+                  {battleState.wildCrafture.speed}
+                </span>
+              </div>
             </div>
           </div>
           <AnimatedCrafture
@@ -274,8 +289,23 @@ export function BattleScreen({
               </div>
               <Progress 
                 value={playerHpPercent} 
-                className="h-3"
+                className="h-3 mb-2"
               />
+              {/* Player Stats Display */}
+              <div className="flex gap-2 text-[10px] text-muted-foreground">
+                <span className="flex items-center gap-0.5">
+                  <Swords className="h-3 w-3 text-red-400" />
+                  {battleState.playerCrafture.attack}
+                </span>
+                <span className="flex items-center gap-0.5">
+                  <Shield className="h-3 w-3 text-blue-400" />
+                  {battleState.playerCrafture.defense}
+                </span>
+                <span className="flex items-center gap-0.5">
+                  <Zap className="h-3 w-3 text-yellow-400" />
+                  {battleState.playerCrafture.speed}
+                </span>
+              </div>
             </div>
           </div>
         </div>
