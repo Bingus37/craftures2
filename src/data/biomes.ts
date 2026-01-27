@@ -126,6 +126,16 @@ export const BIOMES: Biome[] = [
     unlockRequirement: 'shadow-boss',
     texture: 'desert-texture',
   },
+  {
+    id: 'graveyard',
+    name: 'Haunted Graveyard',
+    description: 'A spooky graveyard where skeleton Craftures guard ancient tombs',
+    type: 'ghost',
+    color: 'bg-gray-700',
+    gradient: 'from-gray-600 to-slate-800',
+    unlockRequirement: 'flower-boss',
+    texture: 'graveyard-texture',
+  },
 ];
 
 // Encounter zones - grass patches where you can search for wild Craftures
@@ -165,6 +175,10 @@ export const ENCOUNTER_ZONES: EncounterZone[] = [
   // Desert encounters
   { id: 'desert-grass-1', biomeId: 'desert', name: 'Oasis', x: 95, y: 62, possibleSpecies: ['sandfur', 'pebblite'], minLevel: 35, maxLevel: 40, unlockRequirement: 'desert-1' },
   { id: 'desert-grass-2', biomeId: 'desert', name: 'Ancient Ruins', x: 92, y: 72, possibleSpecies: ['sandfur', 'dunecrawler'], minLevel: 38, maxLevel: 45, unlockRequirement: 'desert-2' },
+  
+  // Graveyard encounters
+  { id: 'graveyard-grass-1', biomeId: 'graveyard', name: 'Old Tombstones', x: 6, y: 62, possibleSpecies: ['skeleton', 'spectrepuff'], minLevel: 35, maxLevel: 40, unlockRequirement: 'graveyard-1' },
+  { id: 'graveyard-grass-2', biomeId: 'graveyard', name: 'Crypt Entrance', x: 8, y: 72, possibleSpecies: ['skeleton', 'skeletonguard', 'wraith'], minLevel: 38, maxLevel: 45, unlockRequirement: 'graveyard-2' },
 ];
 
 // Node positions for visual map layout
@@ -213,7 +227,7 @@ export const BIOME_NODES: BiomeNode[] = [
   { id: 'flower-2', biomeId: 'flower', x: 6, y: 30, enemySpeciesId: 'petalwisp', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['flower-3'] },
   { id: 'flower-3', biomeId: 'flower', x: 8, y: 38, enemySpeciesId: 'petalguard', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['flower-4'] },
   { id: 'flower-4', biomeId: 'flower', x: 10, y: 46, enemySpeciesId: 'petalguard', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['flower-boss'] },
-  { id: 'flower-boss', biomeId: 'flower', x: 8, y: 54, enemySpeciesId: 'bloomqueen', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: [] },
+  { id: 'flower-boss', biomeId: 'flower', x: 8, y: 54, enemySpeciesId: 'bloomqueen', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['graveyard-1'] },
 
   // ======= ROCK BIOME (Top) =======
   { id: 'rock-1', biomeId: 'rock', x: 58, y: 5, enemySpeciesId: 'pebblite', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['rock-2'] },
@@ -232,6 +246,12 @@ export const BIOME_NODES: BiomeNode[] = [
   { id: 'desert-2', biomeId: 'desert', x: 92, y: 66, enemySpeciesId: 'dunecrawler', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['desert-3'] },
   { id: 'desert-3', biomeId: 'desert', x: 94, y: 74, enemySpeciesId: 'dunecrawler', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['desert-boss'] },
   { id: 'desert-boss', biomeId: 'desert', x: 92, y: 82, enemySpeciesId: 'desertlord', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: [] },
+  
+  // ======= GRAVEYARD BIOME (Bottom Left - after Flower) =======
+  { id: 'graveyard-1', biomeId: 'graveyard', x: 6, y: 58, enemySpeciesId: 'skeleton', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['graveyard-2'] },
+  { id: 'graveyard-2', biomeId: 'graveyard', x: 8, y: 66, enemySpeciesId: 'skeletonguard', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['graveyard-3'] },
+  { id: 'graveyard-3', biomeId: 'graveyard', x: 6, y: 74, enemySpeciesId: 'skeletonguard', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['graveyard-boss'] },
+  { id: 'graveyard-boss', biomeId: 'graveyard', x: 8, y: 82, enemySpeciesId: 'prisonguard', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: [] },
 ];
 
 export function getNodeConnections(): { from: string; to: string }[] {

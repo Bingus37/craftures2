@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { OwnedCrafture, GameScreen } from '@/types/crafture';
 import { craftureSpecies } from '@/data/craftures';
-import { Compass, Package, Heart, RotateCcw, Backpack, Coins, BookOpen, Map, ShoppingBag, MapPin } from 'lucide-react';
+import { Package, Heart, RotateCcw, Backpack, Coins, BookOpen, ShoppingBag, MapPin, Terminal } from 'lucide-react';
 import { AnimatedMenuCompanion } from './AnimatedMenuCompanion';
 import {
   AlertDialog,
@@ -14,20 +16,36 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { toast } from 'sonner';
 
 interface MainMenuProps {
   ownedCraftures: OwnedCrafture[];
   coins: number;
   onNavigate: (screen: GameScreen) => void;
   onResetGame: () => void;
+  onUnlockAllSpecies?: () => void;
 }
 
-export function MainMenu({ ownedCraftures, coins, onNavigate, onResetGame }: MainMenuProps) {
+export function MainMenu({ ownedCraftures, coins, onNavigate, onResetGame, onUnlockAllSpecies }: MainMenuProps) {
+  const [showCheatPanel, setShowCheatPanel] = useState(false);
+  const [cheatCode, setCheatCode] = useState('');
+  
   // Show first owned crafture as companion
   const companion = ownedCraftures[0];
   const companionSpecies = companion
     ? craftureSpecies.find((s) => s.id === companion.speciesId)
     : null;
+
+  const handleCheatSubmit = () => {
+    if (cheatCode.toLowerCase() === '123craftures') {
+      onUnlockAllSpecies?.();
+      toast.success('🎉 All species unlocked in Encyclopedia!');
+      setCheatCode('');
+      setShowCheatPanel(false);
+    } else {
+      toast.error('Invalid cheat code');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-secondary/20 p-6 flex flex-col">
@@ -63,81 +81,103 @@ export function MainMenu({ ownedCraftures, coins, onNavigate, onResetGame }: Mai
         </div>
       )}
 
-      {/* Menu buttons */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-3 max-w-sm mx-auto w-full">
-        <Button
-          variant="encounter"
-          size="xl"
-          className="w-full"
-          onClick={() => onNavigate('biomemap')}
-        >
-          <MapPin className="h-6 w-6" />
-          Explore Map
-        </Button>
-
-        <Button
-          variant="default"
-          size="xl"
-          className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
-          onClick={() => onNavigate('encounter')}
-        >
-          <Compass className="h-6 w-6" />
-          Wild Encounters
-        </Button>
-
-        <div className="grid grid-cols-2 gap-3 w-full">
+      {/* Main content with cheat panel */}
+      <div className="flex-1 flex gap-4">
+        {/* Menu buttons */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-3 max-w-sm mx-auto w-full">
           <Button
-            variant="game"
-            size="lg"
+            variant="encounter"
+            size="xl"
             className="w-full"
-            onClick={() => onNavigate('collection')}
+            onClick={() => onNavigate('biomemap')}
           >
-            <Package className="h-5 w-5" />
-            Collection
+            <MapPin className="h-6 w-6" />
+            Explore Map
           </Button>
 
-          <Button
-            variant="care"
-            size="lg"
-            className="w-full"
-            onClick={() => onNavigate('care')}
-          >
-            <Heart className="h-5 w-5" />
-            Care
-          </Button>
-        </div>
+          <div className="grid grid-cols-2 gap-3 w-full">
+            <Button
+              variant="game"
+              size="lg"
+              className="w-full"
+              onClick={() => onNavigate('collection')}
+            >
+              <Package className="h-5 w-5" />
+              Collection
+            </Button>
 
-        <div className="grid grid-cols-2 gap-3 w-full">
+            <Button
+              variant="care"
+              size="lg"
+              className="w-full"
+              onClick={() => onNavigate('care')}
+            >
+              <Heart className="h-5 w-5" />
+              Care
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 w-full">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full"
+              onClick={() => onNavigate('inventory')}
+            >
+              <Backpack className="h-5 w-5" />
+              Inventory
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full bg-amber-50 border-amber-200 hover:bg-amber-100"
+              onClick={() => onNavigate('shop')}
+            >
+              <ShoppingBag className="h-5 w-5 text-amber-600" />
+              Shop
+            </Button>
+          </div>
+
           <Button
             variant="outline"
             size="lg"
             className="w-full"
-            onClick={() => onNavigate('inventory')}
+            onClick={() => onNavigate('encyclopedia')}
           >
-            <Backpack className="h-5 w-5" />
-            Inventory
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full bg-amber-50 border-amber-200 hover:bg-amber-100"
-            onClick={() => onNavigate('shop')}
-          >
-            <ShoppingBag className="h-5 w-5 text-amber-600" />
-            Shop
+            <BookOpen className="h-5 w-5" />
+            Encyclopedia
           </Button>
         </div>
 
-        <Button
-          variant="outline"
-          size="lg"
-          className="w-full"
-          onClick={() => onNavigate('encyclopedia')}
-        >
-          <BookOpen className="h-5 w-5" />
-          Encyclopedia
-        </Button>
+        {/* Cheat Panel - Right Side */}
+        <div className="hidden md:flex flex-col items-center justify-center">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-muted-foreground/50 hover:text-muted-foreground"
+            onClick={() => setShowCheatPanel(!showCheatPanel)}
+          >
+            <Terminal className="h-4 w-4" />
+          </Button>
+          
+          {showCheatPanel && (
+            <div className="mt-2 bg-card border rounded-lg p-3 shadow-lg w-48">
+              <p className="text-xs text-muted-foreground mb-2">Enter cheat code:</p>
+              <Input
+                type="text"
+                value={cheatCode}
+                onChange={(e) => setCheatCode(e.target.value)}
+                placeholder="Code..."
+                className="text-sm mb-2"
+                onKeyDown={(e) => e.key === 'Enter' && handleCheatSubmit()}
+              />
+              <Button size="sm" className="w-full" onClick={handleCheatSubmit}>
+                Submit
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Footer stats */}

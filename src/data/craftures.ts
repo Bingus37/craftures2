@@ -46,6 +46,10 @@ import craftureCrystalarch from '@/assets/crafture-crystalarch.png';
 import craftureCavelord from '@/assets/crafture-cavelord.png';
 // Desert Craftures
 import craftureDunecrawler from '@/assets/crafture-dunecrawler.png';
+// Skeleton Craftures
+import craftureSkeleton from '@/assets/crafture-skeleton.png';
+import craftureSkeletonguard from '@/assets/crafture-skeletonguard.png';
+import crafturePrisonguard from '@/assets/crafture-prisonguard.png';
 
 // Use fallbacks for missing images
 const craftureShadow = craftureVoidmop;
@@ -137,6 +141,10 @@ export const craftureImages: Record<string, string> = {
   'desertlord': craftureDunecrawler,
   // Rare Rathalos
   'rathalos': craftureRathalos,
+  // Skeleton Craftures
+  'skeleton': craftureSkeleton,
+  'skeletonguard': craftureSkeletonguard,
+  'prisonguard': crafturePrisonguard,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -1127,6 +1135,51 @@ export const craftureSpecies: CraftureSpecies[] = [
     evolvesTo: 'petalguard',
     evolvesAt: 18,
     evolutionStage: 1,
+  },
+  
+  // ============= SKELETON LINE (Graveyard Biome) =============
+  {
+    id: 'skeleton',
+    name: 'Skeleton',
+    type: 'ghost',
+    description: 'A bony creature risen from the graveyard. Surprisingly friendly!',
+    rarity: 'common',
+    baseHappiness: 45,
+    baseHunger: 20,
+    baseAttack: 55,
+    baseDefense: 50,
+    baseSpeed: 60,
+    evolvesTo: 'skeletonguard',
+    evolvesAt: 15,
+    evolutionStage: 1,
+  },
+  {
+    id: 'skeletonguard',
+    name: 'Guard Skeleton',
+    type: 'ghost',
+    description: 'A skeleton that found some armor. Now it protects the graveyard gates.',
+    rarity: 'uncommon',
+    baseHappiness: 42,
+    baseHunger: 18,
+    baseAttack: 70,
+    baseDefense: 75,
+    baseSpeed: 55,
+    evolvesTo: 'prisonguard',
+    evolvesAt: 30,
+    evolutionStage: 2,
+  },
+  {
+    id: 'prisonguard',
+    name: 'Prison Guard',
+    type: 'ghost',
+    description: 'The heavily armored warden of the graveyard. Holds the keys to the underworld.',
+    rarity: 'legendary',
+    baseHappiness: 35,
+    baseHunger: 15,
+    baseAttack: 95,
+    baseDefense: 110,
+    baseSpeed: 50,
+    evolutionStage: 3,
   },
 ];
 
