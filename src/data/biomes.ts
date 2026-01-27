@@ -136,6 +136,16 @@ export const BIOMES: Biome[] = [
     unlockRequirement: 'flower-boss',
     texture: 'graveyard-texture',
   },
+  {
+    id: 'sky',
+    name: 'Sky Realm',
+    description: 'A magical realm above the clouds where sky Craftures soar',
+    type: 'ice',
+    color: 'bg-sky-400',
+    gradient: 'from-sky-300 to-blue-400',
+    unlockRequirement: 'crystal-boss',
+    texture: 'sky-texture',
+  },
 ];
 
 // Encounter zones - grass patches where you can search for wild Craftures
@@ -179,6 +189,10 @@ export const ENCOUNTER_ZONES: EncounterZone[] = [
   // Graveyard encounters
   { id: 'graveyard-grass-1', biomeId: 'graveyard', name: 'Old Tombstones', x: 6, y: 62, possibleSpecies: ['skeleton', 'spectrepuff'], minLevel: 35, maxLevel: 40, unlockRequirement: 'graveyard-1' },
   { id: 'graveyard-grass-2', biomeId: 'graveyard', name: 'Crypt Entrance', x: 8, y: 72, possibleSpecies: ['skeleton', 'skeletonguard', 'wraith'], minLevel: 38, maxLevel: 45, unlockRequirement: 'graveyard-2' },
+  
+  // Sky encounters
+  { id: 'sky-grass-1', biomeId: 'sky', name: 'Cloud Tops', x: 50, y: 3, possibleSpecies: ['cloudpuff', 'sparkfuzz'], minLevel: 40, maxLevel: 48, unlockRequirement: 'sky-1' },
+  { id: 'sky-grass-2', biomeId: 'sky', name: 'Storm Front', x: 60, y: 3, possibleSpecies: ['cloudpuff', 'stormcloud'], minLevel: 45, maxLevel: 55, unlockRequirement: 'sky-2' },
 ];
 
 // Node positions for visual map layout
@@ -239,7 +253,7 @@ export const BIOME_NODES: BiomeNode[] = [
   // ======= CRYSTAL BIOME (Top Right) =======
   { id: 'crystal-1', biomeId: 'crystal', x: 90, y: 8, enemySpeciesId: 'crystalpuff', enemyLevel: 35, isBoss: false, rewards: { coins: 300, xp: 250 }, unlocksNodes: ['crystal-2'] },
   { id: 'crystal-2', biomeId: 'crystal', x: 94, y: 5, enemySpeciesId: 'prismling', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['crystal-boss'] },
-  { id: 'crystal-boss', biomeId: 'crystal', x: 96, y: 10, enemySpeciesId: 'crystalarch', enemyLevel: 40, isBoss: true, rewards: { coins: 800, xp: 600 }, unlocksNodes: [] },
+  { id: 'crystal-boss', biomeId: 'crystal', x: 96, y: 10, enemySpeciesId: 'crystalarch', enemyLevel: 40, isBoss: true, rewards: { coins: 800, xp: 600 }, unlocksNodes: ['sky-1'] },
   
   // ======= DESERT BIOME (Bottom Right) =======
   { id: 'desert-1', biomeId: 'desert', x: 94, y: 58, enemySpeciesId: 'sandfur', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['desert-2'] },
@@ -252,6 +266,12 @@ export const BIOME_NODES: BiomeNode[] = [
   { id: 'graveyard-2', biomeId: 'graveyard', x: 8, y: 66, enemySpeciesId: 'skeletonguard', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['graveyard-3'] },
   { id: 'graveyard-3', biomeId: 'graveyard', x: 6, y: 74, enemySpeciesId: 'skeletonguard', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['graveyard-boss'] },
   { id: 'graveyard-boss', biomeId: 'graveyard', x: 8, y: 82, enemySpeciesId: 'prisonguard', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: [] },
+  
+  // ======= SKY REALM BIOME (Top Center - after Crystal) =======
+  { id: 'sky-1', biomeId: 'sky', x: 40, y: 3, enemySpeciesId: 'cloudpuff', enemyLevel: 45, isBoss: false, rewards: { coins: 400, xp: 350 }, unlocksNodes: ['sky-2'] },
+  { id: 'sky-2', biomeId: 'sky', x: 50, y: 3, enemySpeciesId: 'stormcloud', enemyLevel: 50, isBoss: false, rewards: { coins: 500, xp: 420 }, unlocksNodes: ['sky-3'] },
+  { id: 'sky-3', biomeId: 'sky', x: 60, y: 3, enemySpeciesId: 'stormcloud', enemyLevel: 55, isBoss: false, rewards: { coins: 600, xp: 500 }, unlocksNodes: ['sky-boss'] },
+  { id: 'sky-boss', biomeId: 'sky', x: 70, y: 3, enemySpeciesId: 'skylord', enemyLevel: 60, isBoss: true, rewards: { coins: 1500, xp: 1200 }, unlocksNodes: [] },
 ];
 
 export function getNodeConnections(): { from: string; to: string }[] {
