@@ -246,19 +246,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 90,
     evolutionStage: 3,
   },
-  {
-    id: 'fluffking',
-    name: 'Fluffking',
-    type: 'forest',
-    description: 'The majestic evolved form of Fluffkin.',
-    rarity: 'rare',
-    baseHappiness: 75,
-    baseHunger: 45,
-    baseAttack: 70,
-    baseDefense: 65,
-    baseSpeed: 75,
-    evolutionStage: 2,
-  },
 
   // Ice line
   {
@@ -303,19 +290,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseDefense: 90,
     baseSpeed: 75,
     evolutionStage: 3,
-  },
-  {
-    id: 'frostbite',
-    name: 'Frostbite',
-    type: 'ice',
-    description: 'An icy powerhouse with frozen fangs.',
-    rarity: 'rare',
-    baseHappiness: 60,
-    baseHunger: 40,
-    baseAttack: 80,
-    baseDefense: 75,
-    baseSpeed: 60,
-    evolutionStage: 2,
   },
   
   // Fire line
@@ -362,19 +336,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 95,
     evolutionStage: 3,
   },
-  {
-    id: 'blazepuff',
-    name: 'Blazepuff',
-    type: 'fire',
-    description: 'A roaring inferno in fluffy form.',
-    rarity: 'rare',
-    baseHappiness: 70,
-    baseHunger: 55,
-    baseAttack: 95,
-    baseDefense: 50,
-    baseSpeed: 85,
-    evolutionStage: 2,
-  },
   
   // Water line
   {
@@ -419,19 +380,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseDefense: 100,
     baseSpeed: 80,
     evolutionStage: 3,
-  },
-  {
-    id: 'tidalfur',
-    name: 'Tidalfur',
-    type: 'water',
-    description: 'Master of the currents.',
-    rarity: 'legendary',
-    baseHappiness: 65,
-    baseHunger: 35,
-    baseAttack: 75,
-    baseDefense: 85,
-    baseSpeed: 70,
-    evolutionStage: 2,
   },
   
   // Shadow line
@@ -478,19 +426,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 100,
     evolutionStage: 3,
   },
-  {
-    id: 'voidmop',
-    name: 'Voidmop',
-    type: 'shadow',
-    description: 'An entity of pure darkness.',
-    rarity: 'legendary',
-    baseHappiness: 50,
-    baseHunger: 30,
-    baseAttack: 95,
-    baseDefense: 70,
-    baseSpeed: 90,
-    evolutionStage: 2,
-  },
   
   // Flower line
   {
@@ -535,19 +470,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseDefense: 115,
     baseSpeed: 75,
     evolutionStage: 3,
-  },
-  {
-    id: 'bloomwarden',
-    name: 'Bloomwarden',
-    type: 'flower',
-    description: 'Guardian of the eternal garden.',
-    rarity: 'legendary',
-    baseHappiness: 85,
-    baseHunger: 50,
-    baseAttack: 60,
-    baseDefense: 100,
-    baseSpeed: 65,
-    evolutionStage: 2,
   },
   
   // Cube line
@@ -594,19 +516,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 50,
     evolutionStage: 3,
   },
-  {
-    id: 'megatron',
-    name: 'Megatron',
-    type: 'cube',
-    description: 'A massive digital entity.',
-    rarity: 'legendary',
-    baseHappiness: 55,
-    baseHunger: 45,
-    baseAttack: 100,
-    baseDefense: 95,
-    baseSpeed: 40,
-    evolutionStage: 2,
-  },
   
   // Thunder line
   {
@@ -651,19 +560,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseDefense: 65,
     baseSpeed: 115,
     evolutionStage: 3,
-  },
-  {
-    id: 'thunderlord',
-    name: 'Thunderlord',
-    type: 'thunder',
-    description: 'Master of lightning.',
-    rarity: 'rare',
-    baseHappiness: 65,
-    baseHunger: 50,
-    baseAttack: 90,
-    baseDefense: 55,
-    baseSpeed: 100,
-    evolutionStage: 2,
   },
   
   // Rock line
@@ -710,19 +606,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 40,
     evolutionStage: 3,
   },
-  {
-    id: 'golemite',
-    name: 'Golemite',
-    type: 'rock',
-    description: 'An ancient stone guardian.',
-    rarity: 'rare',
-    baseHappiness: 60,
-    baseHunger: 40,
-    baseAttack: 80,
-    baseDefense: 110,
-    baseSpeed: 35,
-    evolutionStage: 2,
-  },
   
   // Ghost line
   {
@@ -767,19 +650,6 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseDefense: 70,
     baseSpeed: 110,
     evolutionStage: 3,
-  },
-  {
-    id: 'phantasm',
-    name: 'Phantasm',
-    type: 'ghost',
-    description: 'A powerful spirit from beyond.',
-    rarity: 'legendary',
-    baseHappiness: 45,
-    baseHunger: 20,
-    baseAttack: 85,
-    baseDefense: 60,
-    baseSpeed: 95,
-    evolutionStage: 2,
   },
   
   // ============= NEW SPECIES =============
