@@ -15,11 +15,16 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Game-specific variants
+        game: "bg-gradient-to-r from-primary to-emerald-600 text-primary-foreground font-bold shadow-lg hover:from-primary/90 hover:to-emerald-500 rounded-xl",
+        encounter: "bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold shadow-lg hover:from-emerald-400 hover:to-green-500 rounded-xl",
+        care: "bg-gradient-to-r from-pink-400 to-rose-500 text-white font-bold shadow-lg hover:from-pink-300 hover:to-rose-400 rounded-xl",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 rounded-xl px-10 text-lg",
         icon: "h-10 w-10",
       },
     },
