@@ -50,6 +50,10 @@ import craftureDunecrawler from '@/assets/crafture-dunecrawler.png';
 import craftureSkeleton from '@/assets/crafture-skeleton.png';
 import craftureSkeletonguard from '@/assets/crafture-skeletonguard.png';
 import crafturePrisonguard from '@/assets/crafture-prisonguard.png';
+// Sky Craftures
+import craftureCloudpuff from '@/assets/crafture-cloudpuff.png';
+import craftureStormcloud from '@/assets/crafture-stormcloud.png';
+import craftureSkylord from '@/assets/crafture-skylord.png';
 
 // Use fallbacks for missing images
 const craftureShadow = craftureVoidmop;
@@ -145,6 +149,10 @@ export const craftureImages: Record<string, string> = {
   'skeleton': craftureSkeleton,
   'skeletonguard': craftureSkeletonguard,
   'prisonguard': crafturePrisonguard,
+  // Sky Craftures
+  'cloudpuff': craftureCloudpuff,
+  'stormcloud': craftureStormcloud,
+  'skylord': craftureSkylord,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -1179,6 +1187,51 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 95,
     baseDefense: 110,
     baseSpeed: 50,
+    evolutionStage: 3,
+  },
+  
+  // ============= SKY LINE (Sky Realm Biome) =============
+  {
+    id: 'cloudpuff',
+    name: 'Cloudpuff',
+    type: 'ice',
+    description: 'A fluffy creature made of pure clouds. Floats peacefully in the sky.',
+    rarity: 'common',
+    baseHappiness: 80,
+    baseHunger: 30,
+    baseAttack: 40,
+    baseDefense: 55,
+    baseSpeed: 70,
+    evolvesTo: 'stormcloud',
+    evolvesAt: 18,
+    evolutionStage: 1,
+  },
+  {
+    id: 'stormcloud',
+    name: 'Stormcloud',
+    type: 'thunder',
+    description: 'A cloud that absorbed too much electricity. Lightning crackles within!',
+    rarity: 'uncommon',
+    baseHappiness: 65,
+    baseHunger: 35,
+    baseAttack: 75,
+    baseDefense: 60,
+    baseSpeed: 85,
+    evolvesTo: 'skylord',
+    evolvesAt: 35,
+    evolutionStage: 2,
+  },
+  {
+    id: 'skylord',
+    name: 'Skylord',
+    type: 'thunder',
+    description: 'The majestic ruler of the skies. Commands weather itself with its golden crown.',
+    rarity: 'legendary',
+    baseHappiness: 70,
+    baseHunger: 25,
+    baseAttack: 100,
+    baseDefense: 85,
+    baseSpeed: 110,
     evolutionStage: 3,
   },
 ];
