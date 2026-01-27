@@ -55,17 +55,35 @@ import craftureCloudpuff from '@/assets/crafture-cloudpuff.png';
 import craftureStormcloud from '@/assets/crafture-stormcloud.png';
 import craftureSkylord from '@/assets/crafture-skylord.png';
 
+// New crafture images
+import craftureFlarepup from '@/assets/crafture-flarepup.png';
+import craftureInfernix from '@/assets/crafture-infernix.png';
+import craftureBlazekingImg from '@/assets/crafture-blazeking.png';
+import craftureAquakit from '@/assets/crafture-aquakit.png';
+import craftureWavecrest from '@/assets/crafture-wavecrest.png';
+import craftureTsunamaw from '@/assets/crafture-tsunamaw.png';
+import craftureZephkit from '@/assets/crafture-zephkit.png';
+import craftureGalewhisk from '@/assets/crafture-galewhisk.png';
+import craftureStormwingImg from '@/assets/crafture-stormwing.png';
+import craftureCrystling from '@/assets/crafture-crystling.png';
+import craftureFrozore from '@/assets/crafture-frozore.png';
+import craftureGlaciarch from '@/assets/crafture-glaciarch.png';
+import crafturePrismlingImg from '@/assets/crafture-prismling.png';
+import craftureStalactiteImg from '@/assets/crafture-stalactite.png';
+import craftureSandfurImg from '@/assets/crafture-sandfur.png';
+import craftureDesertlord from '@/assets/crafture-desertlord.png';
+import craftureRathalosImg from '@/assets/crafture-rathalos.png';
+import crafturePebblite from '@/assets/crafture-pebblite.png';
+import craftureBloomsproutImg from '@/assets/crafture-bloomsprout.png';
+import craftureSlimfeonImg from '@/assets/crafture-slimfeon.png';
+import crafturePhantomking from '@/assets/crafture-phantomking.png';
+import craftureTempestking from '@/assets/crafture-tempestking.png';
+
 // Use fallbacks for missing images
 const craftureShadow = craftureVoidmop;
 const craftureRock = craftureGolemite;
-const crafturePhantasm = craftureGhost;
-const craftureSlimfeon = craftureFloffeon;
 const craftureShadowfiend = craftureVoidmop;
 const craftureStoneshield = craftureGolemite;
-const crafturePrismling = craftureCrystalpuff;
-const craftureStalactite = craftureCaveling;
-const craftureSandfur = craftureDunecrawler;
-const craftureRathalos = craftureFire;
 
 export const craftureImages: Record<string, string> = {
   // Base forms
@@ -81,21 +99,21 @@ export const craftureImages: Record<string, string> = {
   'spectrepuff': craftureGhost,
   // Floffeon line (unique images)
   'floffeon': craftureFloffeon,
-  'slimfeon': craftureSlimfeon,
+  'slimfeon': craftureSlimfeonImg,
   'chonkfeon': craftureChonkfeon,
-  // New species (use base type images for now)
-  'flarepup': craftureFire,
-  'infernix': craftureFire,
-  'blazeking': craftureFire,
-  'aquakit': craftureWater,
-  'wavecrest': craftureWater,
-  'tsunamaw': craftureWater,
-  'zephkit': craftureBase,
-  'galewhisk': craftureBase,
-  'stormwing': craftureBase,
-  'crystling': craftureIce,
-  'frozore': craftureIce,
-  'glaciarch': craftureIce,
+  // New species with unique images
+  'flarepup': craftureFlarepup,
+  'infernix': craftureInfernix,
+  'blazeking': craftureBlazekingImg,
+  'aquakit': craftureAquakit,
+  'wavecrest': craftureWavecrest,
+  'tsunamaw': craftureTsunamaw,
+  'zephkit': craftureZephkit,
+  'galewhisk': craftureGalewhisk,
+  'stormwing': craftureStormwingImg,
+  'crystling': craftureCrystling,
+  'frozore': craftureFrozore,
+  'glaciarch': craftureGlaciarch,
   // Mid-stage evolutions (unique images)
   'fluffguard': craftureFluffguard,
   'frostclaw': craftureFrostclaw,
@@ -116,9 +134,9 @@ export const craftureImages: Record<string, string> = {
   'voidlord': craftureVoidlord,
   'bloomqueen': craftureBloomqueen,
   'terabyte': craftureTerabyte,
-  'tempestking': craftureVoltpulse,
+  'tempestking': craftureTempestking,
   'mountainlord': craftureMountainlord,
-  'phantomking': craftureWraith,
+  'phantomking': crafturePhantomking,
   // Original evolved forms
   'fluffking': craftureFluffguard,
   'frostbite': craftureFrostclaw,
@@ -132,19 +150,19 @@ export const craftureImages: Record<string, string> = {
   'megatron': craftureDatacube,
   // Crystal and Cave Craftures
   'crystalpuff': craftureCrystalpuff,
-  'prismling': crafturePrismling,
+  'prismling': crafturePrismlingImg,
   'crystalarch': craftureCrystalarch,
   'caveling': craftureCaveling,
-  'stalactite': craftureStalactite,
+  'stalactite': craftureStalactiteImg,
   'cavelord': craftureCavelord,
-  'pebblite': craftureRock,
-  'bloomsprout': craftureFlower,
+  'pebblite': crafturePebblite,
+  'bloomsprout': craftureBloomsproutImg,
   // Desert Craftures
-  'sandfur': craftureSandfur,
+  'sandfur': craftureSandfurImg,
   'dunecrawler': craftureDunecrawler,
-  'desertlord': craftureDunecrawler,
+  'desertlord': craftureDesertlord,
   // Rare Rathalos
-  'rathalos': craftureRathalos,
+  'rathalos': craftureRathalosImg,
   // Skeleton Craftures
   'skeleton': craftureSkeleton,
   'skeletonguard': craftureSkeletonguard,
