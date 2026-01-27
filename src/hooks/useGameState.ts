@@ -195,9 +195,9 @@ export function useGameState() {
         let newLevel = c.level;
         let stats = { hp: c.hp, maxHp: c.maxHp, attack: c.attack, defense: c.defense, speed: c.speed };
         
-        // Check for level ups (can level up multiple times at once)
-        while (newExp >= newLevel * 100) {
-          newExp -= newLevel * 100;
+        // Check for level ups (can level up multiple times at once) - reduced XP requirement
+        while (newExp >= newLevel * 50) {
+          newExp -= newLevel * 50;
           newLevel++;
           
           const species = craftureSpecies.find(s => s.id === c.speciesId);
@@ -368,6 +368,11 @@ export function useGameState() {
     setCurrentScreen('starter');
   }, []);
 
+  const unlockAllSpecies = useCallback(() => {
+    const allSpeciesIds = craftureSpecies.map(s => s.id);
+    setDiscoveredSpecies(allSpeciesIds);
+  }, []);
+
   return {
     currentScreen,
     setCurrentScreen,
@@ -394,5 +399,6 @@ export function useGameState() {
     updateCraftureHp,
     getSelectedCrafture,
     resetGame,
+    unlockAllSpecies,
   };
 }

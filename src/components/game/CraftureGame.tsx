@@ -42,6 +42,7 @@ export function CraftureGame() {
     healCrafture,
     updateCraftureHp,
     resetGame,
+    unlockAllSpecies,
   } = useGameState();
 
   const {
@@ -282,6 +283,7 @@ export function CraftureGame() {
             wildLevel: node.enemyLevel,
             biomeNodeId: node.id,
             stageRewards: node.rewards,
+            isSearchEncounter: true, // Enable catching after biome battles
           });
           setCurrentScreen('battle');
         }}
@@ -313,6 +315,7 @@ export function CraftureGame() {
             resetGame();
             resetInventory();
           }}
+          onUnlockAllSpecies={unlockAllSpecies}
         />
       );
 
@@ -372,6 +375,7 @@ export function CraftureGame() {
             resetGame();
             resetInventory();
           }}
+          onUnlockAllSpecies={unlockAllSpecies}
         />
       );
   }
