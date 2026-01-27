@@ -176,6 +176,26 @@ export const BIOMES: Biome[] = [
     unlockRequirement: 'swamp-boss',
     texture: 'volcano-texture',
   },
+  {
+    id: 'coralreef',
+    name: 'Coral Reef',
+    description: 'A vibrant underwater paradise with coral Craftures',
+    type: 'water',
+    color: 'bg-pink-400',
+    gradient: 'from-pink-300 to-cyan-400',
+    unlockRequirement: 'volcano-boss',
+    texture: 'coral-texture',
+  },
+  {
+    id: 'arctictundra',
+    name: 'Arctic Tundra',
+    description: 'Frozen wastelands under the northern lights with arctic Craftures',
+    type: 'ice',
+    color: 'bg-cyan-200',
+    gradient: 'from-cyan-100 to-blue-300',
+    unlockRequirement: 'coralreef-boss',
+    texture: 'arctic-texture',
+  },
 ];
 
 // Encounter zones - grass patches where you can search for wild Craftures
@@ -233,105 +253,125 @@ export const ENCOUNTER_ZONES: EncounterZone[] = [
   { id: 'swamp-grass-2', biomeId: 'swamp', name: 'Poison Bog', x: 55, y: 88, possibleSpecies: ['murkpuff', 'toxifrog'], minLevel: 58, maxLevel: 65, unlockRequirement: 'swamp-2' },
   
   // Volcano encounters
-  { id: 'volcano-grass-1', biomeId: 'volcano', name: 'Lava Fields', x: 75, y: 85, possibleSpecies: ['lavapup', 'emberpuff'], minLevel: 60, maxLevel: 68, unlockRequirement: 'volcano-1' },
-  { id: 'volcano-grass-2', biomeId: 'volcano', name: 'Magma Chamber', x: 85, y: 90, possibleSpecies: ['lavapup', 'magmacore'], minLevel: 65, maxLevel: 75, unlockRequirement: 'volcano-2' },
+  { id: 'volcano-grass-1', biomeId: 'volcano', name: 'Lava Fields', x: 78, y: 78, possibleSpecies: ['lavapup', 'emberpuff'], minLevel: 60, maxLevel: 68, unlockRequirement: 'volcano-1' },
+  { id: 'volcano-grass-2', biomeId: 'volcano', name: 'Magma Chamber', x: 86, y: 84, possibleSpecies: ['lavapup', 'magmacore'], minLevel: 65, maxLevel: 75, unlockRequirement: 'volcano-2' },
+  
+  // Coral Reef encounters
+  { id: 'coralreef-grass-1', biomeId: 'coralreef', name: 'Shallow Reef', x: 96, y: 68, possibleSpecies: ['coralkit', 'aquakit'], minLevel: 72, maxLevel: 80, unlockRequirement: 'coralreef-1' },
+  { id: 'coralreef-grass-2', biomeId: 'coralreef', name: 'Deep Reef', x: 96, y: 52, possibleSpecies: ['coralkit', 'reefguard'], minLevel: 78, maxLevel: 88, unlockRequirement: 'coralreef-2' },
+  
+  // Arctic Tundra encounters
+  { id: 'arctictundra-grass-1', biomeId: 'arctictundra', name: 'Frozen Plains', x: 10, y: 6, possibleSpecies: ['tundrakit', 'frostling'], minLevel: 82, maxLevel: 90, unlockRequirement: 'arctictundra-1' },
+  { id: 'arctictundra-grass-2', biomeId: 'arctictundra', name: 'Blizzard Peaks', x: 20, y: 6, possibleSpecies: ['tundrakit', 'blizzardwolf'], minLevel: 88, maxLevel: 98, unlockRequirement: 'arctictundra-2' },
 ];
 
-// Node positions for visual map layout - LARGER MAP with better spacing
+// Node positions for visual map layout - EXPANDED MAP with better spacing
 export const BIOME_NODES: BiomeNode[] = [
   // ======= FOREST BIOME (Center) =======
-  { id: 'forest-1', biomeId: 'forest', x: 50, y: 55, enemySpeciesId: 'fluffkin', enemyLevel: 2, isBoss: false, rewards: { coins: 40, xp: 25 }, unlocksNodes: ['forest-2'] },
-  { id: 'forest-2', biomeId: 'forest', x: 45, y: 48, enemySpeciesId: 'fluffkin', enemyLevel: 3, isBoss: false, rewards: { coins: 50, xp: 35 }, unlocksNodes: ['forest-3'] },
-  { id: 'forest-3', biomeId: 'forest', x: 52, y: 42, enemySpeciesId: 'fluffguard', enemyLevel: 5, isBoss: false, rewards: { coins: 70, xp: 50 }, unlocksNodes: ['forest-4'] },
-  { id: 'forest-4', biomeId: 'forest', x: 48, y: 36, enemySpeciesId: 'fluffguard', enemyLevel: 7, isBoss: false, rewards: { coins: 90, xp: 70 }, unlocksNodes: ['forest-5'] },
-  { id: 'forest-5', biomeId: 'forest', x: 50, y: 30, enemySpeciesId: 'floffeon', enemyLevel: 8, isBoss: false, rewards: { coins: 110, xp: 90 }, unlocksNodes: ['forest-boss'] },
-  { id: 'forest-boss', biomeId: 'forest', x: 50, y: 24, enemySpeciesId: 'fluffemperor', enemyLevel: 10, isBoss: true, rewards: { coins: 250, xp: 180 }, unlocksNodes: ['fire-1', 'ice-1', 'water-1'] },
+  { id: 'forest-1', biomeId: 'forest', x: 50, y: 58, enemySpeciesId: 'fluffkin', enemyLevel: 2, isBoss: false, rewards: { coins: 40, xp: 25 }, unlocksNodes: ['forest-2'] },
+  { id: 'forest-2', biomeId: 'forest', x: 44, y: 50, enemySpeciesId: 'fluffkin', enemyLevel: 3, isBoss: false, rewards: { coins: 50, xp: 35 }, unlocksNodes: ['forest-3'] },
+  { id: 'forest-3', biomeId: 'forest', x: 52, y: 44, enemySpeciesId: 'fluffguard', enemyLevel: 5, isBoss: false, rewards: { coins: 70, xp: 50 }, unlocksNodes: ['forest-4'] },
+  { id: 'forest-4', biomeId: 'forest', x: 46, y: 38, enemySpeciesId: 'fluffguard', enemyLevel: 7, isBoss: false, rewards: { coins: 90, xp: 70 }, unlocksNodes: ['forest-5'] },
+  { id: 'forest-5', biomeId: 'forest', x: 50, y: 32, enemySpeciesId: 'floffeon', enemyLevel: 8, isBoss: false, rewards: { coins: 110, xp: 90 }, unlocksNodes: ['forest-boss'] },
+  { id: 'forest-boss', biomeId: 'forest', x: 50, y: 26, enemySpeciesId: 'fluffemperor', enemyLevel: 10, isBoss: true, rewards: { coins: 250, xp: 180 }, unlocksNodes: ['fire-1', 'ice-1', 'water-1'] },
 
   // ======= FIRE BIOME (Right side) =======
-  { id: 'fire-1', biomeId: 'fire', x: 65, y: 22, enemySpeciesId: 'emberpuff', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['fire-2'] },
-  { id: 'fire-2', biomeId: 'fire', x: 72, y: 18, enemySpeciesId: 'flarepup', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['fire-3'] },
-  { id: 'fire-3', biomeId: 'fire', x: 78, y: 14, enemySpeciesId: 'embercore', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['fire-4'] },
-  { id: 'fire-4', biomeId: 'fire', x: 84, y: 10, enemySpeciesId: 'infernix', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['fire-5'] },
-  { id: 'fire-5', biomeId: 'fire', x: 88, y: 6, enemySpeciesId: 'infernolord', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['fire-boss'] },
-  { id: 'fire-boss', biomeId: 'fire', x: 92, y: 12, enemySpeciesId: 'infernolord', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['shadow-1'] },
+  { id: 'fire-1', biomeId: 'fire', x: 62, y: 22, enemySpeciesId: 'emberpuff', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['fire-2'] },
+  { id: 'fire-2', biomeId: 'fire', x: 68, y: 17, enemySpeciesId: 'flarepup', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['fire-3'] },
+  { id: 'fire-3', biomeId: 'fire', x: 74, y: 12, enemySpeciesId: 'embercore', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['fire-4'] },
+  { id: 'fire-4', biomeId: 'fire', x: 78, y: 7, enemySpeciesId: 'infernix', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['fire-5'] },
+  { id: 'fire-5', biomeId: 'fire', x: 82, y: 12, enemySpeciesId: 'infernolord', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['fire-boss'] },
+  { id: 'fire-boss', biomeId: 'fire', x: 86, y: 7, enemySpeciesId: 'infernolord', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['shadow-1'] },
 
   // ======= ICE BIOME (Top center-left) =======
-  { id: 'ice-1', biomeId: 'ice', x: 42, y: 18, enemySpeciesId: 'frostling', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['ice-2'] },
-  { id: 'ice-2', biomeId: 'ice', x: 38, y: 12, enemySpeciesId: 'crystalpuff', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['ice-3'] },
-  { id: 'ice-3', biomeId: 'ice', x: 35, y: 6, enemySpeciesId: 'frostclaw', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['ice-4'] },
-  { id: 'ice-4', biomeId: 'ice', x: 42, y: 4, enemySpeciesId: 'frostclaw', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['ice-5'] },
-  { id: 'ice-5', biomeId: 'ice', x: 48, y: 6, enemySpeciesId: 'frostmonarch', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['ice-boss'] },
-  { id: 'ice-boss', biomeId: 'ice', x: 52, y: 4, enemySpeciesId: 'frostmonarch', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['rock-1'] },
+  { id: 'ice-1', biomeId: 'ice', x: 38, y: 20, enemySpeciesId: 'frostling', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['ice-2'] },
+  { id: 'ice-2', biomeId: 'ice', x: 34, y: 14, enemySpeciesId: 'crystalpuff', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['ice-3'] },
+  { id: 'ice-3', biomeId: 'ice', x: 40, y: 8, enemySpeciesId: 'frostclaw', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['ice-4'] },
+  { id: 'ice-4', biomeId: 'ice', x: 46, y: 12, enemySpeciesId: 'frostclaw', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['ice-5'] },
+  { id: 'ice-5', biomeId: 'ice', x: 52, y: 8, enemySpeciesId: 'frostmonarch', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['ice-boss'] },
+  { id: 'ice-boss', biomeId: 'ice', x: 56, y: 14, enemySpeciesId: 'frostmonarch', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['rock-1'] },
 
   // ======= WATER BIOME (Left side) =======
-  { id: 'water-1', biomeId: 'water', x: 35, y: 22, enemySpeciesId: 'bubblefur', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['water-2'] },
-  { id: 'water-2', biomeId: 'water', x: 28, y: 18, enemySpeciesId: 'aquakit', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['water-3'] },
-  { id: 'water-3', biomeId: 'water', x: 22, y: 14, enemySpeciesId: 'tidalwave', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['water-4'] },
-  { id: 'water-4', biomeId: 'water', x: 16, y: 10, enemySpeciesId: 'wavecrest', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['water-5'] },
-  { id: 'water-5', biomeId: 'water', x: 12, y: 6, enemySpeciesId: 'oceanking', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['water-boss'] },
-  { id: 'water-boss', biomeId: 'water', x: 8, y: 12, enemySpeciesId: 'oceanking', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['flower-1'] },
+  { id: 'water-1', biomeId: 'water', x: 38, y: 26, enemySpeciesId: 'bubblefur', enemyLevel: 10, isBoss: false, rewards: { coins: 100, xp: 80 }, unlocksNodes: ['water-2'] },
+  { id: 'water-2', biomeId: 'water', x: 30, y: 22, enemySpeciesId: 'aquakit', enemyLevel: 12, isBoss: false, rewards: { coins: 110, xp: 88 }, unlocksNodes: ['water-3'] },
+  { id: 'water-3', biomeId: 'water', x: 24, y: 17, enemySpeciesId: 'tidalwave', enemyLevel: 14, isBoss: false, rewards: { coins: 130, xp: 100 }, unlocksNodes: ['water-4'] },
+  { id: 'water-4', biomeId: 'water', x: 18, y: 12, enemySpeciesId: 'wavecrest', enemyLevel: 16, isBoss: false, rewards: { coins: 150, xp: 120 }, unlocksNodes: ['water-5'] },
+  { id: 'water-5', biomeId: 'water', x: 14, y: 7, enemySpeciesId: 'oceanking', enemyLevel: 18, isBoss: false, rewards: { coins: 180, xp: 140 }, unlocksNodes: ['water-boss'] },
+  { id: 'water-boss', biomeId: 'water', x: 8, y: 14, enemySpeciesId: 'oceanking', enemyLevel: 22, isBoss: true, rewards: { coins: 400, xp: 300 }, unlocksNodes: ['flower-1'] },
 
   // ======= SHADOW BIOME (Far Right) =======
-  { id: 'shadow-1', biomeId: 'shadow', x: 95, y: 18, enemySpeciesId: 'shadowmop', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['shadow-2'] },
-  { id: 'shadow-2', biomeId: 'shadow', x: 95, y: 28, enemySpeciesId: 'spectrepuff', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['shadow-3'] },
-  { id: 'shadow-3', biomeId: 'shadow', x: 95, y: 38, enemySpeciesId: 'shadowfiend', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['shadow-4'] },
-  { id: 'shadow-4', biomeId: 'shadow', x: 95, y: 48, enemySpeciesId: 'wraith', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['shadow-boss'] },
-  { id: 'shadow-boss', biomeId: 'shadow', x: 95, y: 58, enemySpeciesId: 'voidlord', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['desert-1'] },
+  { id: 'shadow-1', biomeId: 'shadow', x: 92, y: 14, enemySpeciesId: 'shadowmop', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['shadow-2'] },
+  { id: 'shadow-2', biomeId: 'shadow', x: 94, y: 22, enemySpeciesId: 'spectrepuff', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['shadow-3'] },
+  { id: 'shadow-3', biomeId: 'shadow', x: 92, y: 30, enemySpeciesId: 'shadowfiend', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['shadow-4'] },
+  { id: 'shadow-4', biomeId: 'shadow', x: 94, y: 38, enemySpeciesId: 'wraith', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['shadow-boss'] },
+  { id: 'shadow-boss', biomeId: 'shadow', x: 92, y: 46, enemySpeciesId: 'voidlord', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['desert-1'] },
 
   // ======= FLOWER BIOME (Far Left) =======
-  { id: 'flower-1', biomeId: 'flower', x: 5, y: 18, enemySpeciesId: 'bloomsprout', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['flower-2'] },
-  { id: 'flower-2', biomeId: 'flower', x: 5, y: 28, enemySpeciesId: 'petalwisp', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['flower-3'] },
-  { id: 'flower-3', biomeId: 'flower', x: 5, y: 38, enemySpeciesId: 'petalguard', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['flower-4'] },
-  { id: 'flower-4', biomeId: 'flower', x: 5, y: 48, enemySpeciesId: 'petalguard', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['flower-boss'] },
-  { id: 'flower-boss', biomeId: 'flower', x: 5, y: 58, enemySpeciesId: 'bloomqueen', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['graveyard-1'] },
+  { id: 'flower-1', biomeId: 'flower', x: 4, y: 20, enemySpeciesId: 'bloomsprout', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['flower-2'] },
+  { id: 'flower-2', biomeId: 'flower', x: 6, y: 28, enemySpeciesId: 'petalwisp', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['flower-3'] },
+  { id: 'flower-3', biomeId: 'flower', x: 4, y: 36, enemySpeciesId: 'petalguard', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['flower-4'] },
+  { id: 'flower-4', biomeId: 'flower', x: 6, y: 44, enemySpeciesId: 'petalguard', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['flower-boss'] },
+  { id: 'flower-boss', biomeId: 'flower', x: 4, y: 52, enemySpeciesId: 'bloomqueen', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['graveyard-1'] },
 
   // ======= ROCK BIOME (Top Right) =======
-  { id: 'rock-1', biomeId: 'rock', x: 62, y: 4, enemySpeciesId: 'pebblite', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['rock-2'] },
-  { id: 'rock-2', biomeId: 'rock', x: 68, y: 6, enemySpeciesId: 'caveling', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['rock-3'] },
-  { id: 'rock-3', biomeId: 'rock', x: 74, y: 4, enemySpeciesId: 'stoneshield', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['rock-4'] },
-  { id: 'rock-4', biomeId: 'rock', x: 78, y: 6, enemySpeciesId: 'golemite', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['rock-boss'] },
-  { id: 'rock-boss', biomeId: 'rock', x: 82, y: 4, enemySpeciesId: 'mountainlord', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['crystal-1'] },
+  { id: 'rock-1', biomeId: 'rock', x: 62, y: 8, enemySpeciesId: 'pebblite', enemyLevel: 22, isBoss: false, rewards: { coins: 180, xp: 150 }, unlocksNodes: ['rock-2'] },
+  { id: 'rock-2', biomeId: 'rock', x: 66, y: 14, enemySpeciesId: 'caveling', enemyLevel: 24, isBoss: false, rewards: { coins: 200, xp: 165 }, unlocksNodes: ['rock-3'] },
+  { id: 'rock-3', biomeId: 'rock', x: 70, y: 8, enemySpeciesId: 'stoneshield', enemyLevel: 28, isBoss: false, rewards: { coins: 240, xp: 195 }, unlocksNodes: ['rock-4'] },
+  { id: 'rock-4', biomeId: 'rock', x: 74, y: 14, enemySpeciesId: 'golemite', enemyLevel: 32, isBoss: false, rewards: { coins: 280, xp: 225 }, unlocksNodes: ['rock-boss'] },
+  { id: 'rock-boss', biomeId: 'rock', x: 78, y: 8, enemySpeciesId: 'mountainlord', enemyLevel: 35, isBoss: true, rewards: { coins: 600, xp: 450 }, unlocksNodes: ['crystal-1'] },
   
   // ======= CRYSTAL BIOME (Top Far Right) =======
-  { id: 'crystal-1', biomeId: 'crystal', x: 88, y: 4, enemySpeciesId: 'crystalpuff', enemyLevel: 35, isBoss: false, rewards: { coins: 300, xp: 250 }, unlocksNodes: ['crystal-2'] },
-  { id: 'crystal-2', biomeId: 'crystal', x: 92, y: 6, enemySpeciesId: 'prismling', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['crystal-boss'] },
-  { id: 'crystal-boss', biomeId: 'crystal', x: 96, y: 4, enemySpeciesId: 'crystalarch', enemyLevel: 40, isBoss: true, rewards: { coins: 800, xp: 600 }, unlocksNodes: ['sky-1'] },
+  { id: 'crystal-1', biomeId: 'crystal', x: 84, y: 14, enemySpeciesId: 'crystalpuff', enemyLevel: 35, isBoss: false, rewards: { coins: 300, xp: 250 }, unlocksNodes: ['crystal-2'] },
+  { id: 'crystal-2', biomeId: 'crystal', x: 88, y: 8, enemySpeciesId: 'prismling', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['crystal-boss'] },
+  { id: 'crystal-boss', biomeId: 'crystal', x: 92, y: 4, enemySpeciesId: 'crystalarch', enemyLevel: 40, isBoss: true, rewards: { coins: 800, xp: 600 }, unlocksNodes: ['sky-1'] },
   
   // ======= DESERT BIOME (Right Side Lower) =======
-  { id: 'desert-1', biomeId: 'desert', x: 95, y: 65, enemySpeciesId: 'sandfur', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['desert-2'] },
-  { id: 'desert-2', biomeId: 'desert', x: 92, y: 72, enemySpeciesId: 'dunecrawler', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['desert-3'] },
-  { id: 'desert-3', biomeId: 'desert', x: 95, y: 78, enemySpeciesId: 'dunecrawler', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['desert-boss'] },
-  { id: 'desert-boss', biomeId: 'desert', x: 92, y: 85, enemySpeciesId: 'desertlord', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: [] },
+  { id: 'desert-1', biomeId: 'desert', x: 90, y: 52, enemySpeciesId: 'sandfur', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['desert-2'] },
+  { id: 'desert-2', biomeId: 'desert', x: 86, y: 58, enemySpeciesId: 'dunecrawler', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['desert-3'] },
+  { id: 'desert-3', biomeId: 'desert', x: 90, y: 64, enemySpeciesId: 'dunecrawler', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['desert-boss'] },
+  { id: 'desert-boss', biomeId: 'desert', x: 86, y: 70, enemySpeciesId: 'desertlord', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: [] },
   
   // ======= GRAVEYARD BIOME (Left Side Lower) =======
-  { id: 'graveyard-1', biomeId: 'graveyard', x: 5, y: 65, enemySpeciesId: 'skeleton', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['graveyard-2'] },
-  { id: 'graveyard-2', biomeId: 'graveyard', x: 8, y: 72, enemySpeciesId: 'skeletonguard', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['graveyard-3'] },
-  { id: 'graveyard-3', biomeId: 'graveyard', x: 5, y: 78, enemySpeciesId: 'skeletonguard', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['graveyard-boss'] },
-  { id: 'graveyard-boss', biomeId: 'graveyard', x: 8, y: 85, enemySpeciesId: 'prisonguard', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: ['jungle-1'] },
+  { id: 'graveyard-1', biomeId: 'graveyard', x: 8, y: 58, enemySpeciesId: 'skeleton', enemyLevel: 38, isBoss: false, rewards: { coins: 350, xp: 280 }, unlocksNodes: ['graveyard-2'] },
+  { id: 'graveyard-2', biomeId: 'graveyard', x: 12, y: 64, enemySpeciesId: 'skeletonguard', enemyLevel: 42, isBoss: false, rewards: { coins: 400, xp: 320 }, unlocksNodes: ['graveyard-3'] },
+  { id: 'graveyard-3', biomeId: 'graveyard', x: 8, y: 70, enemySpeciesId: 'skeletonguard', enemyLevel: 45, isBoss: false, rewards: { coins: 450, xp: 360 }, unlocksNodes: ['graveyard-boss'] },
+  { id: 'graveyard-boss', biomeId: 'graveyard', x: 12, y: 76, enemySpeciesId: 'prisonguard', enemyLevel: 50, isBoss: true, rewards: { coins: 1000, xp: 800 }, unlocksNodes: ['jungle-1'] },
   
   // ======= SKY REALM BIOME (Top Left - after Crystal) =======
-  { id: 'sky-1', biomeId: 'sky', x: 18, y: 8, enemySpeciesId: 'cloudpuff', enemyLevel: 45, isBoss: false, rewards: { coins: 400, xp: 350 }, unlocksNodes: ['sky-2'] },
-  { id: 'sky-2', biomeId: 'sky', x: 25, y: 5, enemySpeciesId: 'stormcloud', enemyLevel: 50, isBoss: false, rewards: { coins: 500, xp: 420 }, unlocksNodes: ['sky-3'] },
-  { id: 'sky-3', biomeId: 'sky', x: 32, y: 8, enemySpeciesId: 'stormcloud', enemyLevel: 55, isBoss: false, rewards: { coins: 600, xp: 500 }, unlocksNodes: ['sky-boss'] },
-  { id: 'sky-boss', biomeId: 'sky', x: 38, y: 5, enemySpeciesId: 'skylord', enemyLevel: 60, isBoss: true, rewards: { coins: 1500, xp: 1200 }, unlocksNodes: [] },
+  { id: 'sky-1', biomeId: 'sky', x: 28, y: 6, enemySpeciesId: 'cloudpuff', enemyLevel: 45, isBoss: false, rewards: { coins: 400, xp: 350 }, unlocksNodes: ['sky-2'] },
+  { id: 'sky-2', biomeId: 'sky', x: 34, y: 2, enemySpeciesId: 'stormcloud', enemyLevel: 50, isBoss: false, rewards: { coins: 500, xp: 420 }, unlocksNodes: ['sky-3'] },
+  { id: 'sky-3', biomeId: 'sky', x: 40, y: 6, enemySpeciesId: 'stormcloud', enemyLevel: 55, isBoss: false, rewards: { coins: 600, xp: 500 }, unlocksNodes: ['sky-boss'] },
+  { id: 'sky-boss', biomeId: 'sky', x: 46, y: 2, enemySpeciesId: 'skylord', enemyLevel: 60, isBoss: true, rewards: { coins: 1500, xp: 1200 }, unlocksNodes: [] },
   
   // ======= JUNGLE BIOME (Bottom Left - after Graveyard) =======
-  { id: 'jungle-1', biomeId: 'jungle', x: 12, y: 85, enemySpeciesId: 'junglekit', enemyLevel: 52, isBoss: false, rewards: { coins: 500, xp: 400 }, unlocksNodes: ['jungle-2'] },
-  { id: 'jungle-2', biomeId: 'jungle', x: 18, y: 90, enemySpeciesId: 'vineguard', enemyLevel: 56, isBoss: false, rewards: { coins: 600, xp: 480 }, unlocksNodes: ['jungle-3'] },
-  { id: 'jungle-3', biomeId: 'jungle', x: 25, y: 85, enemySpeciesId: 'vineguard', enemyLevel: 60, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['jungle-boss'] },
-  { id: 'jungle-boss', biomeId: 'jungle', x: 32, y: 90, enemySpeciesId: 'jungleking', enemyLevel: 65, isBoss: true, rewards: { coins: 1800, xp: 1400 }, unlocksNodes: ['swamp-1'] },
+  { id: 'jungle-1', biomeId: 'jungle', x: 18, y: 80, enemySpeciesId: 'junglekit', enemyLevel: 52, isBoss: false, rewards: { coins: 500, xp: 400 }, unlocksNodes: ['jungle-2'] },
+  { id: 'jungle-2', biomeId: 'jungle', x: 24, y: 86, enemySpeciesId: 'vineguard', enemyLevel: 56, isBoss: false, rewards: { coins: 600, xp: 480 }, unlocksNodes: ['jungle-3'] },
+  { id: 'jungle-3', biomeId: 'jungle', x: 30, y: 80, enemySpeciesId: 'vineguard', enemyLevel: 60, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['jungle-boss'] },
+  { id: 'jungle-boss', biomeId: 'jungle', x: 36, y: 86, enemySpeciesId: 'jungleking', enemyLevel: 65, isBoss: true, rewards: { coins: 1800, xp: 1400 }, unlocksNodes: ['swamp-1'] },
   
   // ======= SWAMP BIOME (Bottom Center - after Jungle) =======
-  { id: 'swamp-1', biomeId: 'swamp', x: 42, y: 88, enemySpeciesId: 'murkpuff', enemyLevel: 58, isBoss: false, rewards: { coins: 600, xp: 480 }, unlocksNodes: ['swamp-2'] },
-  { id: 'swamp-2', biomeId: 'swamp', x: 50, y: 92, enemySpeciesId: 'toxifrog', enemyLevel: 62, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['swamp-3'] },
-  { id: 'swamp-3', biomeId: 'swamp', x: 58, y: 88, enemySpeciesId: 'toxifrog', enemyLevel: 68, isBoss: false, rewards: { coins: 800, xp: 640 }, unlocksNodes: ['swamp-boss'] },
-  { id: 'swamp-boss', biomeId: 'swamp', x: 65, y: 92, enemySpeciesId: 'swamplord', enemyLevel: 72, isBoss: true, rewards: { coins: 2000, xp: 1600 }, unlocksNodes: ['volcano-1'] },
+  { id: 'swamp-1', biomeId: 'swamp', x: 44, y: 82, enemySpeciesId: 'murkpuff', enemyLevel: 58, isBoss: false, rewards: { coins: 600, xp: 480 }, unlocksNodes: ['swamp-2'] },
+  { id: 'swamp-2', biomeId: 'swamp', x: 52, y: 88, enemySpeciesId: 'toxifrog', enemyLevel: 62, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['swamp-3'] },
+  { id: 'swamp-3', biomeId: 'swamp', x: 58, y: 82, enemySpeciesId: 'toxifrog', enemyLevel: 68, isBoss: false, rewards: { coins: 800, xp: 640 }, unlocksNodes: ['swamp-boss'] },
+  { id: 'swamp-boss', biomeId: 'swamp', x: 64, y: 88, enemySpeciesId: 'swamplord', enemyLevel: 72, isBoss: true, rewards: { coins: 2000, xp: 1600 }, unlocksNodes: ['volcano-1'] },
   
   // ======= VOLCANO BIOME (Bottom Right - after Swamp) =======
-  { id: 'volcano-1', biomeId: 'volcano', x: 75, y: 88, enemySpeciesId: 'lavapup', enemyLevel: 65, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['volcano-2'] },
-  { id: 'volcano-2', biomeId: 'volcano', x: 82, y: 92, enemySpeciesId: 'magmacore', enemyLevel: 70, isBoss: false, rewards: { coins: 800, xp: 640 }, unlocksNodes: ['volcano-3'] },
-  { id: 'volcano-3', biomeId: 'volcano', x: 88, y: 88, enemySpeciesId: 'magmacore', enemyLevel: 75, isBoss: false, rewards: { coins: 900, xp: 720 }, unlocksNodes: ['volcano-boss'] },
-  { id: 'volcano-boss', biomeId: 'volcano', x: 92, y: 92, enemySpeciesId: 'volcanus', enemyLevel: 80, isBoss: true, rewards: { coins: 2500, xp: 2000 }, unlocksNodes: [] },
+  { id: 'volcano-1', biomeId: 'volcano', x: 72, y: 82, enemySpeciesId: 'lavapup', enemyLevel: 65, isBoss: false, rewards: { coins: 700, xp: 560 }, unlocksNodes: ['volcano-2'] },
+  { id: 'volcano-2', biomeId: 'volcano', x: 78, y: 86, enemySpeciesId: 'magmacore', enemyLevel: 70, isBoss: false, rewards: { coins: 800, xp: 640 }, unlocksNodes: ['volcano-3'] },
+  { id: 'volcano-3', biomeId: 'volcano', x: 84, y: 82, enemySpeciesId: 'magmacore', enemyLevel: 75, isBoss: false, rewards: { coins: 900, xp: 720 }, unlocksNodes: ['volcano-boss'] },
+  { id: 'volcano-boss', biomeId: 'volcano', x: 88, y: 86, enemySpeciesId: 'volcanus', enemyLevel: 80, isBoss: true, rewards: { coins: 2500, xp: 2000 }, unlocksNodes: ['coralreef-1'] },
+  
+  // ======= CORAL REEF BIOME (Far Right Middle - after Volcano) =======
+  { id: 'coralreef-1', biomeId: 'coralreef', x: 94, y: 72, enemySpeciesId: 'coralkit', enemyLevel: 75, isBoss: false, rewards: { coins: 900, xp: 720 }, unlocksNodes: ['coralreef-2'] },
+  { id: 'coralreef-2', biomeId: 'coralreef', x: 96, y: 64, enemySpeciesId: 'reefguard', enemyLevel: 80, isBoss: false, rewards: { coins: 1000, xp: 800 }, unlocksNodes: ['coralreef-3'] },
+  { id: 'coralreef-3', biomeId: 'coralreef', x: 94, y: 56, enemySpeciesId: 'reefguard', enemyLevel: 85, isBoss: false, rewards: { coins: 1100, xp: 880 }, unlocksNodes: ['coralreef-boss'] },
+  { id: 'coralreef-boss', biomeId: 'coralreef', x: 96, y: 48, enemySpeciesId: 'coralemperor', enemyLevel: 90, isBoss: true, rewards: { coins: 3000, xp: 2400 }, unlocksNodes: ['arctictundra-1'] },
+  
+  // ======= ARCTIC TUNDRA BIOME (Top Far Left - after Coral Reef) =======
+  { id: 'arctictundra-1', biomeId: 'arctictundra', x: 6, y: 4, enemySpeciesId: 'tundrakit', enemyLevel: 85, isBoss: false, rewards: { coins: 1100, xp: 880 }, unlocksNodes: ['arctictundra-2'] },
+  { id: 'arctictundra-2', biomeId: 'arctictundra', x: 12, y: 2, enemySpeciesId: 'blizzardwolf', enemyLevel: 90, isBoss: false, rewards: { coins: 1200, xp: 960 }, unlocksNodes: ['arctictundra-3'] },
+  { id: 'arctictundra-3', biomeId: 'arctictundra', x: 18, y: 4, enemySpeciesId: 'blizzardwolf', enemyLevel: 95, isBoss: false, rewards: { coins: 1300, xp: 1040 }, unlocksNodes: ['arctictundra-boss'] },
+  { id: 'arctictundra-boss', biomeId: 'arctictundra', x: 24, y: 2, enemySpeciesId: 'arctictitan', enemyLevel: 100, isBoss: true, rewards: { coins: 5000, xp: 4000 }, unlocksNodes: [] },
 ];
 
 export function getNodeConnections(): { from: string; to: string }[] {
