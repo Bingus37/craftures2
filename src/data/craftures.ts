@@ -63,6 +63,14 @@ import craftureMurkpuff from '@/assets/crafture-murkpuff.png';
 import craftureToxifrog from '@/assets/crafture-toxifrog.png';
 import craftureSwamplord from '@/assets/crafture-swamplord.png';
 // Volcano Craftures
+// Coral Reef Craftures
+import craftureCoralkit from '@/assets/crafture-coralkit.png';
+import craftureReefguard from '@/assets/crafture-reefguard.png';
+import craftureCoralemperor from '@/assets/crafture-coralemperor.png';
+// Arctic Tundra Craftures
+import craftureTundrakit from '@/assets/crafture-tundrakit.png';
+import craftureBlizzardwolf from '@/assets/crafture-blizzardwolf.png';
+import craftureArctictitan from '@/assets/crafture-arctictitan.png';
 import craftureLavapup from '@/assets/crafture-lavapup.png';
 import craftureMagmacore from '@/assets/crafture-magmacore.png';
 import craftureVolcanus from '@/assets/crafture-volcanus.png';
@@ -195,6 +203,14 @@ export const craftureImages: Record<string, string> = {
   'lavapup': craftureLavapup,
   'magmacore': craftureMagmacore,
   'volcanus': craftureVolcanus,
+  // Coral Reef Craftures
+  'coralkit': craftureCoralkit,
+  'reefguard': craftureReefguard,
+  'coralemperor': craftureCoralemperor,
+  // Arctic Tundra Craftures
+  'tundrakit': craftureTundrakit,
+  'blizzardwolf': craftureBlizzardwolf,
+  'arctictitan': craftureArctictitan,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -1279,6 +1295,96 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 115,
     baseDefense: 90,
     baseSpeed: 78,
+    evolutionStage: 3,
+  },
+  
+  // ============= CORAL REEF BIOME CRAFTURES =============
+  {
+    id: 'coralkit',
+    name: 'Coralkit',
+    type: 'water',
+    description: 'A colorful coral creature from tropical reef shallows.',
+    rarity: 'uncommon',
+    baseHappiness: 70,
+    baseHunger: 45,
+    baseAttack: 50,
+    baseDefense: 65,
+    baseSpeed: 55,
+    evolvesTo: 'reefguard',
+    evolvesAt: 18,
+    evolutionStage: 1,
+  },
+  {
+    id: 'reefguard',
+    name: 'Reefguard',
+    type: 'water',
+    description: 'Bioluminescent patterns glow across its coral body. A protective mid-form.',
+    rarity: 'rare',
+    baseHappiness: 65,
+    baseHunger: 40,
+    baseAttack: 68,
+    baseDefense: 82,
+    baseSpeed: 65,
+    evolvesTo: 'coralemperor',
+    evolvesAt: 35,
+    evolutionStage: 2,
+  },
+  {
+    id: 'coralemperor',
+    name: 'Coralemperor',
+    type: 'water',
+    description: 'Ancient ruler of the reefs. Living corals form a crown upon its head.',
+    rarity: 'legendary',
+    baseHappiness: 60,
+    baseHunger: 35,
+    baseAttack: 95,
+    baseDefense: 110,
+    baseSpeed: 75,
+    evolutionStage: 3,
+  },
+  
+  // ============= ARCTIC TUNDRA BIOME CRAFTURES =============
+  {
+    id: 'tundrakit',
+    name: 'Tundrakit',
+    type: 'ice',
+    description: 'A small arctic fox creature with frost crystals in its fur.',
+    rarity: 'uncommon',
+    baseHappiness: 72,
+    baseHunger: 40,
+    baseAttack: 55,
+    baseDefense: 50,
+    baseSpeed: 70,
+    evolvesTo: 'blizzardwolf',
+    evolvesAt: 18,
+    evolutionStage: 1,
+  },
+  {
+    id: 'blizzardwolf',
+    name: 'Blizzardwolf',
+    type: 'ice',
+    description: 'Ice patterns glow on its white fur. A fierce blizzard mid-form.',
+    rarity: 'rare',
+    baseHappiness: 65,
+    baseHunger: 35,
+    baseAttack: 78,
+    baseDefense: 65,
+    baseSpeed: 88,
+    evolvesTo: 'arctictitan',
+    evolvesAt: 35,
+    evolutionStage: 2,
+  },
+  {
+    id: 'arctictitan',
+    name: 'Arctictitan',
+    type: 'ice',
+    description: 'Eternal ice god of the frozen wastes. Northern lights dance around it.',
+    rarity: 'legendary',
+    baseHappiness: 58,
+    baseHunger: 30,
+    baseAttack: 100,
+    baseDefense: 95,
+    baseSpeed: 98,
     evolutionStage: 3,
   },
 ];

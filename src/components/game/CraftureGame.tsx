@@ -328,7 +328,7 @@ export function CraftureGame() {
           }}
           onBattle={(wildSpeciesId, wildLevel) => {
             discoverSpecies(wildSpeciesId);
-            setBattleData({ wildSpeciesId, wildLevel });
+            setBattleData({ wildSpeciesId, wildLevel, isSearchEncounter: true });
             setCurrentScreen('battle');
           }}
           ownedSpeciesIds={ownedCraftures.map((c) => c.speciesId)}
