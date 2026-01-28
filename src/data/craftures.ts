@@ -8,6 +8,8 @@ import craftureFlower from '@/assets/crafture-flower-v2.png';
 import craftureCube from '@/assets/crafture-cube.png';
 import craftureThunder from '@/assets/crafture-thunder.png';
 import craftureGhost from '@/assets/crafture-ghost.png';
+import craftureSparkpuff from '@/assets/crafture-sparkpuff.png';
+import craftureGhostwisp from '@/assets/crafture-ghostwisp.png';
 // Evolution images
 import craftureFluffking from '@/assets/crafture-fluffking.png';
 import craftureFrostbite from '@/assets/crafture-frostbite.png';
@@ -114,9 +116,9 @@ export const craftureImages: Record<string, string> = {
   'shadowmop': craftureShadow,
   'petalwisp': craftureFlower,
   'cubeling': craftureCube,
-  'sparkfuzz': craftureThunder,
-  'boulderball': craftureRock,
-  'spectrepuff': craftureGhost,
+  'sparkfuzz': craftureSparkpuff,
+  'boulderball': crafturePebblite,
+  'spectrepuff': craftureGhostwisp,
   // Floffeon line (unique images)
   'floffeon': craftureFloffeon,
   'slimfeon': craftureSlimfeonImg,
