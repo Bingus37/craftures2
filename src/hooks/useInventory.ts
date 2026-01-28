@@ -54,14 +54,19 @@ export function useInventory() {
   }, []);
 
   const removeItem = useCallback((itemId: string, quantity: number = 1): boolean => {
-    let success = false;
+    // Check synchronously first if we have enough
+    const existing = inventory.find(i => i.itemId === itemId);
+    if (!existing || existing.quantity < quantity) {
+      return false;
+    }
+    
+    // We have enough, update the state
     setInventory(prev => {
-      const existing = prev.find(i => i.itemId === itemId);
-      if (!existing || existing.quantity < quantity) {
+      const item = prev.find(i => i.itemId === itemId);
+      if (!item || item.quantity < quantity) {
         return prev;
       }
-      success = true;
-      if (existing.quantity === quantity) {
+      if (item.quantity === quantity) {
         return prev.filter(i => i.itemId !== itemId);
       }
       return prev.map(i =>
@@ -70,8 +75,8 @@ export function useInventory() {
           : i
       );
     });
-    return success;
-  }, []);
+    return true;
+  }, [inventory]);
 
   const getItemQuantity = useCallback((itemId: string): number => {
     return inventory.find(i => i.itemId === itemId)?.quantity || 0;
