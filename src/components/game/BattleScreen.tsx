@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { OwnedCrafture, getHungerMultiplier } from '@/types/crafture';
-import { craftureSpecies, typeGradients, craftureImages } from '@/data/craftures';
-import { useBattle } from '@/hooks/useBattle';
-import { STATUS_EFFECTS } from '@/types/battle';
-import { InventoryItem, getItem } from '@/types/inventory';
-import { Swords, Shield, Zap, ArrowLeft, AlertTriangle, RotateCcw, Backpack } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { AnimatedCrafture } from './AnimatedCrafture';
-import { BattleItemsMenu } from './BattleItemsMenu';
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { OwnedCrafture, getHungerMultiplier } from "@/types/crafture";
+import { craftureSpecies, typeGradients, craftureImages } from "@/data/craftures";
+import { useBattle } from "@/hooks/useBattle";
+import { STATUS_EFFECTS } from "@/types/battle";
+import { InventoryItem, getItem } from "@/types/inventory";
+import { Swords, Shield, Zap, ArrowLeft, AlertTriangle, RotateCcw, Backpack } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { AnimatedCrafture } from "./AnimatedCrafture";
+import { BattleItemsMenu } from "./BattleItemsMenu";
 
 interface BattleScreenProps {
   playerCrafture: OwnedCrafture;
@@ -36,14 +36,12 @@ export function BattleScreen({
 }: BattleScreenProps) {
   const [showTeam, setShowTeam] = useState(false);
   const [showItems, setShowItems] = useState(false);
-  
-  const { battleState, startBattle, playerAttack, triggerWildTurn, flee, endBattle, switchCrafture, healInBattle } = useBattle(
-    playerCrafture,
-    onEnd,
-    undefined
-  );
+
+  const { battleState, startBattle, playerAttack, triggerWildTurn, flee, endBattle, switchCrafture, healInBattle } =
+    useBattle(playerCrafture, onEnd, undefined);
 
   const logRef = useRef<HTMLDivElement>(null);
+  const hasStartedBattle = useRef(false);
 
   // Start battle on mount
   useEffect(() => {
@@ -68,7 +66,7 @@ export function BattleScreen({
   // Handle player fainted - show team selector
   useEffect(() => {
     if (battleState?.playerHp === 0 && !battleState.isOver) {
-      const availableTeam = allOwnedCraftures.filter(c => c.hp > 0 && c.id !== playerCrafture.id);
+      const availableTeam = allOwnedCraftures.filter((c) => c.hp > 0 && c.id !== playerCrafture.id);
       if (availableTeam.length > 0) {
         setShowTeam(true);
       }
@@ -94,8 +92,8 @@ export function BattleScreen({
     );
   }
 
-  const playerSpecies = craftureSpecies.find(s => s.id === battleState.playerCrafture.speciesId);
-  const wildSpecies = craftureSpecies.find(s => s.id === battleState.wildCrafture.speciesId);
+  const playerSpecies = craftureSpecies.find((s) => s.id === battleState.playerCrafture.speciesId);
+  const wildSpecies = craftureSpecies.find((s) => s.id === battleState.wildCrafture.speciesId);
 
   if (!playerSpecies || !wildSpecies) return null;
 
@@ -103,12 +101,13 @@ export function BattleScreen({
   const wildHpPercent = (battleState.wildHp / battleState.wildCrafture.maxHp) * 100;
 
   // Check if player has other alive craftures
-  const hasOtherAliveCraftures = allOwnedCraftures.filter(c => c.hp > 0 && c.id !== battleState.playerCrafture.id).length > 0;
+  const hasOtherAliveCraftures =
+    allOwnedCraftures.filter((c) => c.hp > 0 && c.id !== battleState.playerCrafture.id).length > 0;
 
   // Team selection overlay
   if (showTeam) {
-    const availableTeam = allOwnedCraftures.filter(c => c.hp > 0 && c.id !== playerCrafture.id);
-    
+    const availableTeam = allOwnedCraftures.filter((c) => c.hp > 0 && c.id !== playerCrafture.id);
+
     return (
       <div className="min-h-screen bg-gradient-to-b from-red-900/20 via-background to-muted p-4 flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center">
@@ -116,12 +115,12 @@ export function BattleScreen({
             {battleState.playerCrafture.nickname} fainted!
           </h2>
           <p className="text-muted-foreground mb-6">Choose another Crafture:</p>
-          
+
           <div className="grid grid-cols-2 gap-4 max-w-md">
-            {availableTeam.map(crafture => {
-              const species = craftureSpecies.find(s => s.id === crafture.speciesId);
+            {availableTeam.map((crafture) => {
+              const species = craftureSpecies.find((s) => s.id === crafture.speciesId);
               if (!species) return null;
-              
+
               return (
                 <button
                   key={crafture.id}
@@ -129,22 +128,22 @@ export function BattleScreen({
                   className="bg-card rounded-xl p-4 shadow-card hover:scale-105 transition-all text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <img 
-                      src={craftureImages[species.id]} 
-                      alt={species.name} 
-                      className="w-16 h-16 object-contain"
-                    />
+                    <img src={craftureImages[species.id]} alt={species.name} className="w-16 h-16 object-contain" />
                     <div>
                       <h3 className="font-display font-bold">{crafture.nickname}</h3>
-                      <span className={cn(
-                        'inline-block rounded-full px-2 py-0.5 text-xs font-semibold bg-gradient-to-r text-primary-foreground',
-                        typeGradients[species.type]
-                      )}>
+                      <span
+                        className={cn(
+                          "inline-block rounded-full px-2 py-0.5 text-xs font-semibold bg-gradient-to-r text-primary-foreground",
+                          typeGradients[species.type],
+                        )}
+                      >
                         Lv.{crafture.level}
                       </span>
                       <div className="mt-1">
                         <Progress value={(crafture.hp / crafture.maxHp) * 100} className="h-2 w-20" />
-                        <span className="text-xs text-muted-foreground">{crafture.hp}/{crafture.maxHp}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {crafture.hp}/{crafture.maxHp}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -152,7 +151,7 @@ export function BattleScreen({
               );
             })}
           </div>
-          
+
           <Button variant="outline" className="mt-6" onClick={onBack}>
             Give Up
           </Button>
@@ -188,10 +187,12 @@ export function BattleScreen({
                       <span className="text-xs">{STATUS_EFFECTS[battleState.wildStatus].icon}</span>
                     )}
                   </h3>
-                  <span className={cn(
-                    'inline-block rounded-full px-2 py-0.5 text-xs font-semibold capitalize bg-gradient-to-r text-primary-foreground',
-                    typeGradients[wildSpecies.type]
-                  )}>
+                  <span
+                    className={cn(
+                      "inline-block rounded-full px-2 py-0.5 text-xs font-semibold capitalize bg-gradient-to-r text-primary-foreground",
+                      typeGradients[wildSpecies.type],
+                    )}
+                  >
                     Lv. {battleState.wildCrafture.level}
                   </span>
                 </div>
@@ -199,10 +200,7 @@ export function BattleScreen({
                   {battleState.wildHp}/{battleState.wildCrafture.maxHp}
                 </div>
               </div>
-              <Progress 
-                value={wildHpPercent} 
-                className="h-3 mb-2"
-              />
+              <Progress value={wildHpPercent} className="h-3 mb-2" />
               {/* Wild Stats Display */}
               <div className="flex gap-2 text-[10px] text-muted-foreground">
                 <span className="flex items-center gap-0.5">
@@ -225,8 +223,7 @@ export function BattleScreen({
             className="h-28 w-28"
             isAnimating={!battleState.isOver}
             animationType={
-              battleState.wildHp <= 0 ? 'faint' : 
-              battleState.isAnimating && !battleState.playerTurn ? 'attack' : 'idle'
+              battleState.wildHp <= 0 ? "faint" : battleState.isAnimating && !battleState.playerTurn ? "attack" : "idle"
             }
             showBackground={true}
           />
@@ -247,16 +244,17 @@ export function BattleScreen({
               className="h-32 w-32"
               isAnimating={!battleState.isOver}
               animationType={
-                battleState.playerHp <= 0 ? 'faint' :
-                battleState.isAnimating && battleState.playerTurn ? 'attack' : 'idle'
+                battleState.playerHp <= 0
+                  ? "faint"
+                  : battleState.isAnimating && battleState.playerTurn
+                    ? "attack"
+                    : "idle"
               }
               showBackground={true}
             />
             {/* Status indicator */}
             {battleState.playerStatus && (
-              <div className="absolute -top-2 right-0 text-2xl">
-                {STATUS_EFFECTS[battleState.playerStatus].icon}
-              </div>
+              <div className="absolute -top-2 right-0 text-2xl">{STATUS_EFFECTS[battleState.playerStatus].icon}</div>
             )}
             {/* Hunger warning on player */}
             {playerCrafture.hunger < 30 && (
@@ -276,10 +274,12 @@ export function BattleScreen({
                       <span className="text-xs">{STATUS_EFFECTS[battleState.playerStatus].icon}</span>
                     )}
                   </h3>
-                  <span className={cn(
-                    'inline-block rounded-full px-2 py-0.5 text-xs font-semibold capitalize bg-gradient-to-r text-primary-foreground',
-                    typeGradients[playerSpecies.type]
-                  )}>
+                  <span
+                    className={cn(
+                      "inline-block rounded-full px-2 py-0.5 text-xs font-semibold capitalize bg-gradient-to-r text-primary-foreground",
+                      typeGradients[playerSpecies.type],
+                    )}
+                  >
                     Lv. {battleState.playerCrafture.level}
                   </span>
                 </div>
@@ -287,10 +287,7 @@ export function BattleScreen({
                   {battleState.playerHp}/{battleState.playerCrafture.maxHp}
                 </div>
               </div>
-              <Progress 
-                value={playerHpPercent} 
-                className="h-3 mb-2"
-              />
+              <Progress value={playerHpPercent} className="h-3 mb-2" />
               {/* Player Stats Display */}
               <div className="flex gap-2 text-[10px] text-muted-foreground">
                 <span className="flex items-center gap-0.5">
@@ -312,10 +309,7 @@ export function BattleScreen({
       </div>
 
       {/* Battle log */}
-      <div 
-        ref={logRef}
-        className="bg-card/80 backdrop-blur rounded-xl p-3 h-24 overflow-y-auto mb-4 shadow-card"
-      >
+      <div ref={logRef} className="bg-card/80 backdrop-blur rounded-xl p-3 h-24 overflow-y-auto mb-4 shadow-card">
         {battleState.battleLog.map((log, i) => (
           <p key={i} className="text-sm text-foreground animate-fade-in">
             {log}
@@ -325,12 +319,7 @@ export function BattleScreen({
 
       {/* Action buttons - Moves */}
       {battleState.isOver ? (
-        <Button
-          variant="game"
-          size="lg"
-          className="w-full"
-          onClick={endBattle}
-        >
+        <Button variant="game" size="lg" className="w-full" onClick={endBattle}>
           Continue
         </Button>
       ) : (
@@ -345,8 +334,8 @@ export function BattleScreen({
                 onClick={() => playerAttack(index)}
                 disabled={!battleState.playerTurn || battleState.isAnimating}
                 className={cn(
-                  'flex-col h-auto py-2 text-left',
-                  `bg-gradient-to-r ${typeGradients[move.type]} text-primary-foreground hover:opacity-90`
+                  "flex-col h-auto py-2 text-left",
+                  `bg-gradient-to-r ${typeGradients[move.type]} text-primary-foreground hover:opacity-90`,
                 )}
               >
                 <div className="flex items-center gap-1 w-full">
@@ -360,7 +349,7 @@ export function BattleScreen({
               </Button>
             ))}
           </div>
-          
+
           {/* Other actions */}
           <div className="grid grid-cols-3 gap-2">
             {hasOtherAliveCraftures && (
@@ -404,17 +393,17 @@ export function BattleScreen({
                   // Handle items locally in battle state
                   const item = getItem(itemId);
                   if (!item) return;
-                  
+
                   // Remove item from inventory via parent
                   if (onUseItem) {
                     onUseItem(itemId, battleState.playerCrafture.id);
                   }
-                  
+
                   // Heal in battle (updates battle state HP)
-                  if (item.type === 'potion' && item.id !== 'berrySnack' && item.id !== 'gourmetMeal') {
+                  if (item.type === "potion" && item.id !== "berrySnack" && item.id !== "gourmetMeal") {
                     healInBattle(item.healAmount || 20);
                   }
-                  
+
                   setShowItems(false);
                 }}
                 onClose={() => setShowItems(false)}
