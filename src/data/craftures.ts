@@ -100,6 +100,14 @@ import craftureBloomsproutImg from '@/assets/crafture-bloomsprout.png';
 import craftureSlimfeonImg from '@/assets/crafture-slimfeon.png';
 import crafturePhantomking from '@/assets/crafture-phantomking.png';
 import craftureTempestking from '@/assets/crafture-tempestking.png';
+// 4th Evolution images
+import craftureFluffgod from '@/assets/crafture-fluffgod.png';
+import craftureInfernoking from '@/assets/crafture-infernoking.png';
+import craftureFrostprime from '@/assets/crafture-frostprime.png';
+// Mechanical Craftures
+import craftureGearkit from '@/assets/crafture-gearkit.png';
+import craftureSteamguard from '@/assets/crafture-steamguard.png';
+import craftureClockworktitan from '@/assets/crafture-clockworktitan.png';
 
 // Use fallbacks for missing images
 const craftureShadow = craftureVoidmop;
@@ -213,6 +221,14 @@ export const craftureImages: Record<string, string> = {
   'tundrakit': craftureTundrakit,
   'blizzardwolf': craftureBlizzardwolf,
   'arctictitan': craftureArctictitan,
+  // 4th Evolution Craftures
+  'fluffgod': craftureFluffgod,
+  'infernoking': craftureInfernoking,
+  'frostprime': craftureFrostprime,
+  // Mechanical Craftures
+  'gearkit': craftureGearkit,
+  'steamguard': craftureSteamguard,
+  'clockworktitan': craftureClockworktitan,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -304,6 +320,8 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 90,
     baseDefense: 85,
     baseSpeed: 90,
+    evolvesTo: 'fluffgod',
+    evolvesAt: 45,
     evolutionStage: 3,
   },
 
@@ -349,6 +367,8 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 95,
     baseDefense: 90,
     baseSpeed: 75,
+    evolvesTo: 'frostprime',
+    evolvesAt: 45,
     evolutionStage: 3,
   },
   
@@ -394,10 +414,10 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 110,
     baseDefense: 60,
     baseSpeed: 95,
+    evolvesTo: 'infernoking',
+    evolvesAt: 45,
     evolutionStage: 3,
   },
-  
-  // Water line
   {
     id: 'bubblefur',
     name: 'Bubblefur',
@@ -1389,6 +1409,92 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseSpeed: 98,
     evolutionStage: 3,
   },
+  
+  // ============= 4TH EVOLUTION SUPREME FORMS =============
+  {
+    id: 'fluffgod',
+    name: 'Fluffgod',
+    type: 'forest',
+    description: 'The divine incarnation of nature itself. Golden light radiates from its ethereal form.',
+    rarity: 'legendary',
+    baseHappiness: 95,
+    baseHunger: 40,
+    baseAttack: 125,
+    baseDefense: 120,
+    baseSpeed: 115,
+    evolutionStage: 4,
+  },
+  {
+    id: 'infernoking',
+    name: 'Infernoking',
+    type: 'fire',
+    description: 'The ultimate fire deity. Its white-hot flames can melt mountains.',
+    rarity: 'legendary',
+    baseHappiness: 75,
+    baseHunger: 55,
+    baseAttack: 145,
+    baseDefense: 85,
+    baseSpeed: 120,
+    evolutionStage: 4,
+  },
+  {
+    id: 'frostprime',
+    name: 'Frostprime',
+    type: 'ice',
+    description: 'The primordial ice deity. Aurora borealis flows through its crystalline body.',
+    rarity: 'legendary',
+    baseHappiness: 60,
+    baseHunger: 30,
+    baseAttack: 130,
+    baseDefense: 125,
+    baseSpeed: 105,
+    evolutionStage: 4,
+  },
+  
+  // ============= MECHANICAL LINE =============
+  {
+    id: 'gearkit',
+    name: 'Gearkit',
+    type: 'mechanical',
+    description: 'A curious steampunk creature with gears embedded in its fur and steam pipes on its back.',
+    rarity: 'uncommon',
+    baseHappiness: 60,
+    baseHunger: 40,
+    baseAttack: 55,
+    baseDefense: 60,
+    baseSpeed: 45,
+    evolvesTo: 'steamguard',
+    evolvesAt: 15,
+    evolutionStage: 1,
+  },
+  {
+    id: 'steamguard',
+    name: 'Steamguard',
+    type: 'mechanical',
+    description: 'A powerful mechanical guardian with brass plating and spinning gears in its chest.',
+    rarity: 'rare',
+    baseHappiness: 55,
+    baseHunger: 35,
+    baseAttack: 75,
+    baseDefense: 80,
+    baseSpeed: 55,
+    evolvesTo: 'clockworktitan',
+    evolvesAt: 30,
+    evolutionStage: 2,
+  },
+  {
+    id: 'clockworktitan',
+    name: 'Clockwork Titan',
+    type: 'mechanical',
+    description: 'The ultimate steampunk emperor. Its clockwork heart powers an unstoppable machine.',
+    rarity: 'legendary',
+    baseHappiness: 50,
+    baseHunger: 30,
+    baseAttack: 105,
+    baseDefense: 115,
+    baseSpeed: 70,
+    evolutionStage: 3,
+  },
 ];
 
 export const typeColors: Record<CraftureType, string> = {
@@ -1402,6 +1508,7 @@ export const typeColors: Record<CraftureType, string> = {
   thunder: 'bg-yellow-400',
   rock: 'bg-stone-500',
   ghost: 'bg-indigo-400',
+  mechanical: 'bg-amber-600',
 };
 
 export const typeGradients: Record<CraftureType, string> = {
@@ -1415,18 +1522,20 @@ export const typeGradients: Record<CraftureType, string> = {
   thunder: 'from-yellow-400 to-amber-300',
   rock: 'from-stone-600 to-stone-400',
   ghost: 'from-indigo-500 to-purple-400',
+  mechanical: 'from-amber-600 to-orange-500',
 };
 
 // Type effectiveness chart
 export const typeEffectiveness: Record<CraftureType, { strong: CraftureType[]; weak: CraftureType[] }> = {
-  fire: { strong: ['ice', 'flower', 'cube'], weak: ['water', 'rock'] },
+  fire: { strong: ['ice', 'flower', 'cube', 'mechanical'], weak: ['water', 'rock'] },
   water: { strong: ['fire', 'rock'], weak: ['ice', 'thunder', 'flower'] },
-  ice: { strong: ['water', 'forest', 'flower'], weak: ['fire', 'rock'] },
+  ice: { strong: ['water', 'forest', 'flower'], weak: ['fire', 'rock', 'mechanical'] },
   forest: { strong: ['water', 'rock'], weak: ['fire', 'ice'] },
   flower: { strong: ['water', 'rock', 'ghost'], weak: ['fire', 'ice', 'shadow'] },
   shadow: { strong: ['ghost', 'flower'], weak: ['flower', 'thunder'] },
   ghost: { strong: ['shadow', 'cube'], weak: ['shadow', 'flower'] },
-  thunder: { strong: ['water', 'shadow'], weak: ['rock', 'cube'] },
+  thunder: { strong: ['water', 'shadow', 'mechanical'], weak: ['rock', 'cube'] },
   rock: { strong: ['fire', 'ice', 'thunder'], weak: ['water', 'forest', 'flower'] },
   cube: { strong: ['ghost'], weak: ['fire', 'thunder'] },
+  mechanical: { strong: ['ice', 'rock', 'cube'], weak: ['fire', 'thunder', 'water'] },
 };

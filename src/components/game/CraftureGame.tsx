@@ -11,6 +11,7 @@ import { EncyclopediaScreen } from "./EncyclopediaScreen";
 import { StageRoadScreen, Stage } from "./StageRoadScreen";
 import { ShopScreen } from "./ShopScreen";
 import { BiomeMapScreen } from "./BiomeMapScreen";
+import { ArenaScreen, ArenaTrainer } from "./ArenaScreen";
 import { CatchScreen } from "./CatchScreen";
 import { BiomeNode, EncounterZone } from "@/data/biomes";
 import { useState } from "react";
@@ -289,6 +290,25 @@ export function CraftureGame() {
         }}
         completedNodes={completedBiomeNodes}
         ownedCraftures={ownedCraftures}
+      />
+    );
+  }
+
+  // Handle arena screen
+  if (currentScreen === "arena") {
+    return (
+      <ArenaScreen
+        onBack={() => setCurrentScreen("menu")}
+        onStartBattle={(trainer: ArenaTrainer) => {
+          setBattleData({
+            wildSpeciesId: trainer.team[0].speciesId,
+            wildLevel: trainer.team[0].level,
+            stageRewards: trainer.rewards,
+          });
+          setCurrentScreen("battle");
+        }}
+        ownedCraftures={ownedCraftures}
+        defeatedTrainers={[]}
       />
     );
   }

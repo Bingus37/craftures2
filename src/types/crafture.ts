@@ -1,4 +1,4 @@
-export type CraftureType = 'forest' | 'ice' | 'fire' | 'water' | 'shadow' | 'flower' | 'cube' | 'thunder' | 'rock' | 'ghost';
+export type CraftureType = 'forest' | 'ice' | 'fire' | 'water' | 'shadow' | 'flower' | 'cube' | 'thunder' | 'rock' | 'ghost' | 'mechanical';
 
 export interface CraftureSpecies {
   id: string;
@@ -14,7 +14,7 @@ export interface CraftureSpecies {
   evolvesTo?: string;
   evolvesAt?: number;
   evolutionPaths?: { targetId: string; levelRequired: number; condition?: 'high-hunger' | 'low-hunger' }[];
-  evolutionStage?: 1 | 2 | 3; // 1=base, 2=mid, 3=final
+  evolutionStage?: 1 | 2 | 3 | 4; // 1=base, 2=mid, 3=final, 4=supreme
 }
 
 export interface OwnedCrafture {
@@ -36,7 +36,7 @@ export interface OwnedCrafture {
   lastPetted: Date;
 }
 
-export type GameScreen = 'starter' | 'menu' | 'encounter' | 'collection' | 'care' | 'battle' | 'inventory' | 'encyclopedia' | 'stageroad' | 'shop' | 'biomemap';
+export type GameScreen = 'starter' | 'menu' | 'encounter' | 'collection' | 'care' | 'battle' | 'inventory' | 'encyclopedia' | 'stageroad' | 'shop' | 'biomemap' | 'arena';
 
 // Evolution can be branching based on conditions
 export interface EvolutionPath {

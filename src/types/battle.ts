@@ -76,6 +76,12 @@ export const BATTLE_MOVES: Record<CraftureType, BattleMove[]> = {
     { id: 'glitch-strike', name: 'Glitch Strike', type: 'cube', power: 55, accuracy: 85, description: 'May stun target', statusEffect: 'stun', statusChance: 0.25, icon: '🔲' },
     { id: 'compress', name: 'Compress', type: 'cube', power: 75, accuracy: 80, description: 'Crushing pressure', icon: '📦' },
   ],
+  mechanical: [
+    { id: 'gear-grind', name: 'Gear Grind', type: 'mechanical', power: 45, accuracy: 100, description: 'Spinning gears attack', icon: '⚙️' },
+    { id: 'steam-blast', name: 'Steam Blast', type: 'mechanical', power: 60, accuracy: 90, description: 'High-pressure steam', icon: '💨' },
+    { id: 'piston-punch', name: 'Piston Punch', type: 'mechanical', power: 70, accuracy: 85, description: 'Powerful mechanical punch', icon: '🔩' },
+    { id: 'overclock', name: 'Overclock', type: 'mechanical', power: 80, accuracy: 75, description: 'Overheats for massive damage', statusEffect: 'burn', statusChance: 0.2, icon: '🔧' },
+  ],
 };
 
 // Get moves for a Crafture type
