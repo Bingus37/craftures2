@@ -13,6 +13,7 @@ import { ShopScreen } from "./ShopScreen";
 import { BiomeMapScreen } from "./BiomeMapScreen";
 import { ArenaScreen, ArenaTrainer } from "./ArenaScreen";
 import { CatchScreen } from "./CatchScreen";
+import { DailyChallengeScreen, DailyChallenge } from "./DailyChallengeScreen";
 import { BiomeNode, EncounterZone } from "@/data/biomes";
 import { useState } from "react";
 import { getItem } from "@/types/inventory";
@@ -65,12 +66,26 @@ export function CraftureGame() {
     biomeNodeId?: string;
     stageRewards?: { coins: number; xp: number };
     isSearchEncounter?: boolean; // For catch mechanics after search battles
+    dailyChallengeId?: string; // For daily challenge tracking
   } | null>(null);
 
   const [showCatchScreen, setShowCatchScreen] = useState<{
     wildSpeciesId: string;
     wildLevel: number;
   } | null>(null);
+
+  const [completedDailyChallenges, setCompletedDailyChallenges] = useState<string[]>(() => {
+    const saved = localStorage.getItem('craftures-daily-challenges');
+    if (saved) {
+      const { date, completed } = JSON.parse(saved);
+      // Reset if it's a new day
+      const today = new Date().toDateString();
+      if (date === today) {
+        return completed;
+      }
+    }
+    return [];
+  });
 
   // Show loading while checking localStorage
   if (!isLoaded || !inventoryLoaded) {
@@ -169,6 +184,15 @@ export function CraftureGame() {
               } else if (battleData.biomeNodeId && battleData.stageRewards) {
                 // Handle biome node completion
                 completeBiomeNode(battleData.biomeNodeId);
+                addCoins(battleData.stageRewards.coins);
+              } else if (battleData.dailyChallengeId && battleData.stageRewards) {
+                // Handle daily challenge completion
+                const newCompleted = [...completedDailyChallenges, battleData.dailyChallengeId];
+                setCompletedDailyChallenges(newCompleted);
+                localStorage.setItem('craftures-daily-challenges', JSON.stringify({
+                  date: new Date().toDateString(),
+                  completed: newCompleted,
+                }));
                 addCoins(battleData.stageRewards.coins);
               } else {
                 // Regular battle coins
@@ -309,6 +333,26 @@ export function CraftureGame() {
         }}
         ownedCraftures={ownedCraftures}
         defeatedTrainers={[]}
+      />
+    );
+  }
+
+  // Handle daily challenge screen
+  if (currentScreen === "dailychallenge") {
+    return (
+      <DailyChallengeScreen
+        onBack={() => setCurrentScreen("menu")}
+        onStartBattle={(challenge: DailyChallenge) => {
+          setBattleData({
+            wildSpeciesId: challenge.enemySpeciesId,
+            wildLevel: challenge.enemyLevel,
+            stageRewards: challenge.rewards,
+            dailyChallengeId: challenge.id,
+          });
+          setCurrentScreen("battle");
+        }}
+        ownedCraftures={ownedCraftures}
+        completedChallenges={completedDailyChallenges}
       />
     );
   }

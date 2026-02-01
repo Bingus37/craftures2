@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { OwnedCrafture, GameScreen } from '@/types/crafture';
 import { craftureSpecies } from '@/data/craftures';
-import { Package, Heart, RotateCcw, Backpack, Coins, BookOpen, ShoppingBag, MapPin, Terminal, Swords } from 'lucide-react';
+import { Package, Heart, RotateCcw, Backpack, Coins, BookOpen, ShoppingBag, MapPin, Terminal, Swords, Calendar } from 'lucide-react';
 import { AnimatedMenuCompanion } from './AnimatedMenuCompanion';
 import {
   AlertDialog,
@@ -160,6 +160,16 @@ export function MainMenu({ ownedCraftures, coins, onNavigate, onResetGame, onUnl
               Arena
             </Button>
           </div>
+
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full bg-purple-50 border-purple-200 hover:bg-purple-100"
+            onClick={() => onNavigate('dailychallenge')}
+          >
+            <Calendar className="h-5 w-5 text-purple-600" />
+            Daily Challenge
+          </Button>
         </div>
 
         {/* Cheat Panel - Right Side */}

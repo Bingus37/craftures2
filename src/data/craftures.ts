@@ -108,6 +108,18 @@ import craftureFrostprime from '@/assets/crafture-frostprime.png';
 import craftureGearkit from '@/assets/crafture-gearkit.png';
 import craftureSteamguard from '@/assets/crafture-steamguard.png';
 import craftureClockworktitan from '@/assets/crafture-clockworktitan.png';
+// Fluffy Line
+import craftureFluffpuff from '@/assets/crafture-fluffpuff.png';
+import craftureFluffcloud from '@/assets/crafture-fluffcloud.png';
+import craftureFluffnova from '@/assets/crafture-fluffnova.png';
+// Sleepy Line
+import craftureDozepuff from '@/assets/crafture-dozepuff.png';
+import craftureSlumberfur from '@/assets/crafture-slumberfur.png';
+import craftureDreamlord from '@/assets/crafture-dreamlord.png';
+// Energetic Line
+import craftureZippuff from '@/assets/crafture-zippuff.png';
+import craftureDashfur from '@/assets/crafture-dashfur.png';
+import craftureBlazeburst from '@/assets/crafture-blazeburst.png';
 
 // Use fallbacks for missing images
 const craftureShadow = craftureVoidmop;
@@ -229,6 +241,18 @@ export const craftureImages: Record<string, string> = {
   'gearkit': craftureGearkit,
   'steamguard': craftureSteamguard,
   'clockworktitan': craftureClockworktitan,
+  // Fluffy Line
+  'fluffpuff': craftureFluffpuff,
+  'fluffcloud': craftureFluffcloud,
+  'fluffnova': craftureFluffnova,
+  // Sleepy Line
+  'dozepuff': craftureDozepuff,
+  'slumberfur': craftureSlumberfur,
+  'dreamlord': craftureDreamlord,
+  // Energetic Line
+  'zippuff': craftureZippuff,
+  'dashfur': craftureDashfur,
+  'blazeburst': craftureBlazeburst,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [
@@ -1493,6 +1517,141 @@ export const craftureSpecies: CraftureSpecies[] = [
     baseAttack: 105,
     baseDefense: 115,
     baseSpeed: 70,
+    evolutionStage: 3,
+  },
+  
+  // ============= FLUFFY LINE (Pink furballs) =============
+  {
+    id: 'fluffpuff',
+    name: 'Fluffpuff',
+    type: 'forest',
+    description: 'An adorable pink furball that spreads joy wherever it bounces.',
+    rarity: 'common',
+    baseHappiness: 85,
+    baseHunger: 50,
+    baseAttack: 35,
+    baseDefense: 45,
+    baseSpeed: 50,
+    evolvesTo: 'fluffcloud',
+    evolvesAt: 14,
+    evolutionStage: 1,
+  },
+  {
+    id: 'fluffcloud',
+    name: 'Fluffcloud',
+    type: 'forest',
+    description: 'A dreamy magenta furball that floats on clouds of happiness.',
+    rarity: 'uncommon',
+    baseHappiness: 90,
+    baseHunger: 45,
+    baseAttack: 55,
+    baseDefense: 60,
+    baseSpeed: 65,
+    evolvesTo: 'fluffnova',
+    evolvesAt: 30,
+    evolutionStage: 2,
+  },
+  {
+    id: 'fluffnova',
+    name: 'Fluffnova',
+    type: 'forest',
+    description: 'A cosmic purple furball radiating with celestial energy.',
+    rarity: 'legendary',
+    baseHappiness: 95,
+    baseHunger: 40,
+    baseAttack: 80,
+    baseDefense: 85,
+    baseSpeed: 90,
+    evolutionStage: 3,
+  },
+  
+  // ============= SLEEPY LINE (Dream furballs) =============
+  {
+    id: 'dozepuff',
+    name: 'Dozepuff',
+    type: 'ghost',
+    description: 'A drowsy cream furball that yawns contagiously and loves naps.',
+    rarity: 'common',
+    baseHappiness: 70,
+    baseHunger: 30,
+    baseAttack: 40,
+    baseDefense: 55,
+    baseSpeed: 30,
+    evolvesTo: 'slumberfur',
+    evolvesAt: 16,
+    evolutionStage: 1,
+  },
+  {
+    id: 'slumberfur',
+    name: 'Slumberfur',
+    type: 'ghost',
+    description: 'A serene lavender furball surrounded by floating Z symbols.',
+    rarity: 'uncommon',
+    baseHappiness: 75,
+    baseHunger: 25,
+    baseAttack: 60,
+    baseDefense: 70,
+    baseSpeed: 40,
+    evolvesTo: 'dreamlord',
+    evolvesAt: 32,
+    evolutionStage: 2,
+  },
+  {
+    id: 'dreamlord',
+    name: 'Dreamlord',
+    type: 'ghost',
+    description: 'A cosmic dream guardian floating in a realm of dream bubbles.',
+    rarity: 'legendary',
+    baseHappiness: 80,
+    baseHunger: 20,
+    baseAttack: 85,
+    baseDefense: 95,
+    baseSpeed: 60,
+    evolutionStage: 3,
+  },
+  
+  // ============= ENERGETIC LINE (Speed furballs) =============
+  {
+    id: 'zippuff',
+    name: 'Zippuff',
+    type: 'fire',
+    description: 'A hyperactive orange furball that never stops bouncing around.',
+    rarity: 'common',
+    baseHappiness: 80,
+    baseHunger: 70,
+    baseAttack: 50,
+    baseDefense: 30,
+    baseSpeed: 75,
+    evolvesTo: 'dashfur',
+    evolvesAt: 15,
+    evolutionStage: 1,
+  },
+  {
+    id: 'dashfur',
+    name: 'Dashfur',
+    type: 'fire',
+    description: 'A blazing red-orange furball crackling with electric speed.',
+    rarity: 'uncommon',
+    baseHappiness: 75,
+    baseHunger: 65,
+    baseAttack: 70,
+    baseDefense: 45,
+    baseSpeed: 95,
+    evolvesTo: 'blazeburst',
+    evolvesAt: 30,
+    evolutionStage: 2,
+  },
+  {
+    id: 'blazeburst',
+    name: 'Blazeburst',
+    type: 'fire',
+    description: 'An unstoppable crimson fury surrounded by explosive energy.',
+    rarity: 'legendary',
+    baseHappiness: 70,
+    baseHunger: 60,
+    baseAttack: 100,
+    baseDefense: 55,
+    baseSpeed: 120,
     evolutionStage: 3,
   },
 ];
