@@ -36,7 +36,7 @@ export interface OwnedCrafture {
   lastPetted: Date;
 }
 
-export type GameScreen = 'starter' | 'menu' | 'encounter' | 'collection' | 'care' | 'battle' | 'inventory' | 'encyclopedia' | 'stageroad' | 'shop' | 'biomemap' | 'arena';
+export type GameScreen = 'starter' | 'menu' | 'encounter' | 'collection' | 'care' | 'battle' | 'inventory' | 'encyclopedia' | 'stageroad' | 'shop' | 'biomemap' | 'arena' | 'dailychallenge';
 
 // Evolution can be branching based on conditions
 export interface EvolutionPath {
