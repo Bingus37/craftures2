@@ -14,6 +14,7 @@ import { BiomeMapScreen } from "./BiomeMapScreen";
 import { ArenaScreen, ArenaTrainer } from "./ArenaScreen";
 import { CatchScreen } from "./CatchScreen";
 import { DailyChallengeScreen, DailyChallenge } from "./DailyChallengeScreen";
+import { BreedingPenScreen } from "./BreedingPenScreen";
 import { BiomeNode, EncounterZone } from "@/data/biomes";
 import { useState } from "react";
 import { getItem } from "@/types/inventory";
@@ -353,6 +354,19 @@ export function CraftureGame() {
         }}
         ownedCraftures={ownedCraftures}
         completedChallenges={completedDailyChallenges}
+      />
+    );
+  }
+
+  // Handle breeding pen screen
+  if (currentScreen === "breedingpen") {
+    return (
+      <BreedingPenScreen
+        onBack={() => setCurrentScreen("menu")}
+        ownedCraftures={ownedCraftures}
+        coins={coins}
+        onAddCoins={addCoins}
+        onAddCrafture={addCrafture}
       />
     );
   }

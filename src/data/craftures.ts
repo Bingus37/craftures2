@@ -1,4 +1,5 @@
 import { CraftureSpecies, CraftureType } from '@/types/crafture';
+import { hybridImages, hybridRecipes } from '@/data/hybrids';
 
 import craftureBase from '@/assets/crafture-base.png';
 import craftureIce from '@/assets/crafture-ice-v2.png';
@@ -253,6 +254,8 @@ export const craftureImages: Record<string, string> = {
   'zippuff': craftureZippuff,
   'dashfur': craftureDashfur,
   'blazeburst': craftureBlazeburst,
+  // Hybrid Craftures (from breeding)
+  ...hybridImages,
 };
 
 export const craftureSpecies: CraftureSpecies[] = [

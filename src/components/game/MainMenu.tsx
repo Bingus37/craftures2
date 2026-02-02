@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { OwnedCrafture, GameScreen } from '@/types/crafture';
 import { craftureSpecies } from '@/data/craftures';
-import { Package, Heart, RotateCcw, Backpack, Coins, BookOpen, ShoppingBag, MapPin, Terminal, Swords, Calendar } from 'lucide-react';
+import { Package, Heart, RotateCcw, Backpack, Coins, BookOpen, ShoppingBag, MapPin, Terminal, Swords, Calendar, Egg } from 'lucide-react';
 import { AnimatedMenuCompanion } from './AnimatedMenuCompanion';
 import {
   AlertDialog,
@@ -161,15 +161,27 @@ export function MainMenu({ ownedCraftures, coins, onNavigate, onResetGame, onUnl
             </Button>
           </div>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full bg-purple-50 border-purple-200 hover:bg-purple-100"
-            onClick={() => onNavigate('dailychallenge')}
-          >
-            <Calendar className="h-5 w-5 text-purple-600" />
-            Daily Challenge
-          </Button>
+          <div className="grid grid-cols-2 gap-3 w-full">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full bg-purple-50 border-purple-200 hover:bg-purple-100"
+              onClick={() => onNavigate('dailychallenge')}
+            >
+              <Calendar className="h-5 w-5 text-purple-600" />
+              Daily
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full bg-pink-50 border-pink-200 hover:bg-pink-100"
+              onClick={() => onNavigate('breedingpen')}
+            >
+              <Egg className="h-5 w-5 text-pink-600" />
+              Breed
+            </Button>
+          </div>
         </div>
 
         {/* Cheat Panel - Right Side */}
